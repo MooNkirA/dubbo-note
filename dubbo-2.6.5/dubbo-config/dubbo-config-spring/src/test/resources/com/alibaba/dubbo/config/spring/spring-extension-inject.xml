@@ -21,15 +21,15 @@
     http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd
     ">
 
-    <!-- current application configuration -->
+    <!-- current application config -->
     <dubbo:application name="demo-provider"/>
 
-    <!-- registry center configuration -->
+    <!-- registry center config -->
     <dubbo:registry address="N/A"/>
 
     <bean id="mockDao" class="com.alibaba.dubbo.config.spring.filter.MockDaoImpl"/>
 
-    <!-- service configuration -->
+    <!-- service config -->
     <dubbo:service id="demoServiceConfig" interface="com.alibaba.dubbo.config.spring.api.DemoService" ref="demoService"
                    filter="mymock,default"/>
 

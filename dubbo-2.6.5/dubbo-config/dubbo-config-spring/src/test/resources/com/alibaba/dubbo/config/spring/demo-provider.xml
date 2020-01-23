@@ -20,16 +20,16 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
     http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
 
-    <!-- current application configuration -->
+    <!-- current application config -->
     <dubbo:application name="demo-provider"/>
 
-    <!-- registry center configuration -->
+    <!-- registry center config -->
     <dubbo:registry address="N/A"/>
 
-    <!-- service protocol configuration -->
+    <!-- service protocol config -->
     <dubbo:protocol name="dubbo" port="20813"/>
 
-    <!-- service configuration -->
+    <!-- service config -->
     <dubbo:service interface="com.alibaba.dubbo.config.spring.api.DemoService" ref="demoService"/>
 
     <bean id="demoService" class="com.alibaba.dubbo.config.spring.impl.DemoServiceImpl"/>

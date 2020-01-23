@@ -84,7 +84,7 @@ public class DubboConfigBindingBeanPostProcessor implements BeanPostProcessor, A
 
             if (log.isInfoEnabled()) {
                 log.info("The properties of bean [name : " + beanName + "] have been binding by prefix of " +
-                        "configuration properties : " + prefix);
+                        "config properties : " + prefix);
             }
         }
 

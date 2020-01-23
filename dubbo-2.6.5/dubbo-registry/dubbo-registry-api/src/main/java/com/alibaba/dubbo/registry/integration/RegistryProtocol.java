@@ -390,7 +390,7 @@ public class RegistryProtocol implements Protocol {
             }
             //The current, may have been merged many times
             URL currentUrl = exporter.getInvoker().getUrl();
-            //Merged with this configuration
+            //Merged with this config
             URL newUrl = getConfigedInvokerUrl(configurators, originUrl);
             if (!currentUrl.equals(newUrl)) {
                 RegistryProtocol.this.doChangeLocalExport(originInvoker, newUrl);

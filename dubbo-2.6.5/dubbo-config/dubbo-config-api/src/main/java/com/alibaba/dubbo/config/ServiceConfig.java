@@ -87,7 +87,7 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
     private T ref;
     // service name
     private String path;
-    // method configuration
+    // method config
     private List<MethodConfig> methods;
     private ProviderConfig provider;
     private transient volatile boolean exported;

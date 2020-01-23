@@ -36,7 +36,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Utility methods and public methods for parsing configuration
+ * Utility methods and public methods for parsing config
  *
  * @export
  */

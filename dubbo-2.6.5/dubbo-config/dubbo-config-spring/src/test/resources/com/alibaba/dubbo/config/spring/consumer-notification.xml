@@ -21,10 +21,10 @@
     http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd
     ">
 
-    <!-- current application configuration -->
+    <!-- current application config -->
     <dubbo:application name="demo-consumer"/>
 
-    <!-- service reference configuration -->
+    <!-- service reference config -->
     <dubbo:reference id="demoService" interface="com.alibaba.dubbo.config.spring.api.DemoService">
         <dubbo:method name="sayName" onreturn="notify.getBox" onthrow="notify.getBox" oninvoke="notify.getBox"/>
     </dubbo:reference>

@@ -36,7 +36,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class ProviderConfiguration {
 
     /**
-     * Current application configuration, to replace XML config:
+     * Current application config, to replace XML config:
      * <prev>
      * &lt;dubbo:application name="dubbo-annotation-provider"/&gt;
      * </prev>
@@ -51,7 +51,7 @@ public class ProviderConfiguration {
     }
 
     /**
-     * Current registry center configuration, to replace XML config:
+     * Current registry center config, to replace XML config:
      * <prev>
      * &lt;dubbo:registry id="my-registry" address="N/A"/&gt;
      * </prev>
@@ -66,7 +66,7 @@ public class ProviderConfiguration {
     }
 
     /**
-     * Current protocol configuration, to replace XML config:
+     * Current protocol config, to replace XML config:
      * <prev>
      * &lt;dubbo:protocol name="dubbo" port="12345"/&gt;
      * </prev>

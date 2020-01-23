@@ -40,13 +40,13 @@
 
     <dubbo:registry address="N/A"/>
 
-    <!-- service application configuration -->
+    <!-- service application config -->
     <dubbo:application name="dubbo_provider"/>
 
-    <!-- service protocol configuration -->
+    <!-- service protocol config -->
     <dubbo:protocol name="dubbo" port="20885"/>
 
-    <!-- service export configuration -->
+    <!-- service export config -->
     <dubbo:service id="helloService" interface="com.alibaba.dubbo.rpc.benchmark.DemoService"
                    ref="demo.local"/>
 

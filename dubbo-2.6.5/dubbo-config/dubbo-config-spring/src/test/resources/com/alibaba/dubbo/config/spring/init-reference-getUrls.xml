@@ -21,10 +21,10 @@
     http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd
     ">
 
-    <!-- current application configuration -->
+    <!-- current application config -->
     <dubbo:application name="demo-consumer"/>
 
-    <!-- service reference configuration -->
+    <!-- service reference config -->
     <dubbo:reference id="demoService" interface="com.alibaba.dubbo.config.spring.api.DemoService"
                      url="dubbo://127.0.0.1:20813;dubbo://127.0.0.1:20814" init="true" timeout="100" scope="remote">
         <dubbo:parameter key="connec.timeout" value="1000"/>

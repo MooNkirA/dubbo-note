@@ -27,7 +27,7 @@
 
     <dubbo:protocol name="dubbo" port="20887"/>
 
-    <!-- service configuration -->
+    <!-- service config -->
     <dubbo:service interface="com.alibaba.dubbo.config.spring.api.DemoService"
                    class="com.alibaba.dubbo.config.spring.impl.DemoServiceImpl">
         <property name="prefix" value="welcome:"/>

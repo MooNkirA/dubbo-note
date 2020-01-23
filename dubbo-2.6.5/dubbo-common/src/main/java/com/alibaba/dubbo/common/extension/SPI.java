@@ -26,8 +26,8 @@ import java.lang.annotation.Target;
 /**
  * Marker for extension interface
  * <p/>
- * Changes on extension configuration file <br/>
- * Use <code>Protocol</code> as an example, its configuration file 'META-INF/dubbo/com.xxx.Protocol' is changes from: <br/>
+ * Changes on extension config file <br/>
+ * Use <code>Protocol</code> as an example, its config file 'META-INF/dubbo/com.xxx.Protocol' is changes from: <br/>
  * <pre>
  *     com.foo.XxxProtocol
  *     com.foo.YyyProtocol

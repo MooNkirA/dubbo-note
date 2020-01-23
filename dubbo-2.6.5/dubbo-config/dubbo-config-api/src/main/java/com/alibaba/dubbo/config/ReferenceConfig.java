@@ -190,7 +190,7 @@ public class ReferenceConfig<T> extends AbstractReferenceConfig {
         if (interfaceName == null || interfaceName.length() == 0) {
             throw new IllegalStateException("<dubbo:reference interface=\"\" /> interface not allow null!");
         }
-        // get consumer's global configuration
+        // get consumer's global config
         checkDefault();
         appendProperties(this);
         if (getGeneric() == null && getConsumer() != null) {
@@ -374,7 +374,7 @@ public class ReferenceConfig<T> extends AbstractReferenceConfig {
                         }
                     }
                 }
-            } else { // assemble URL from register center's configuration
+            } else { // assemble URL from register center's config
                 List<URL> us = loadRegistries(false);
                 if (us != null && !us.isEmpty()) {
                     for (URL u : us) {

@@ -21,19 +21,19 @@
     http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd
     ">
 
-    <!-- current application configuration -->>
+    <!-- current application config -->>
     <dubbo:application name="demo-provider"/>
 
-    <!-- registry center configuration -->
+    <!-- registry center config -->
     <dubbo:registry address="N/A"/>
 
-    <!-- protocol configuration -->
+    <!-- protocol config -->
     <dubbo:protocol name="dubbo" port="20813"/>
     <dubbo:protocol name="rmi" port="10913"/>
 
     <dubbo:provider protocol="dubbo,rmi"/>
 
-    <!-- service configuration -->
+    <!-- service config -->
     <dubbo:service interface="com.alibaba.dubbo.config.spring.api.DemoService" ref="demoService"/>
 
     <bean id="demoService" class="com.alibaba.dubbo.config.spring.impl.DemoServiceImpl"/>

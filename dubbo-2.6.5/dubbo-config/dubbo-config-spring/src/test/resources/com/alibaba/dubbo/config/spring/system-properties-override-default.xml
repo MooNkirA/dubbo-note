@@ -21,7 +21,7 @@
     http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd
     ">
 
-    <!-- service configuration -->
+    <!-- service config -->
     <dubbo:service id="demoServiceConfig" interface="com.alibaba.dubbo.config.spring.api.DemoService"
                    ref="demoService"/>
 

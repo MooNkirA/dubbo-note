@@ -34,7 +34,7 @@ import org.springframework.context.annotation.PropertySource;
 public class ConsumerConfiguration {
 
     /**
-     * Current application configuration, to replace XML config:
+     * Current application config, to replace XML config:
      * <prev>
      * &lt;dubbo:application name="dubbo-annotation-consumer"/&gt;
      * </prev>
@@ -49,7 +49,7 @@ public class ConsumerConfiguration {
     }
 
     /**
-     * Current registry center configuration, to replace XML config:
+     * Current registry center config, to replace XML config:
      * <prev>
      * &lt;dubbo:registry address="N/A"/&gt;
      * </prev>

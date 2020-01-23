@@ -155,11 +155,11 @@
                         <goals>
                             <goal>upload-single</goal>
                         </goals>
-                        <configuration>
+                        <config>
                             <fromFile>${basedir}/src/main/resources/META-INF/dubbo.xsd</fromFile>
                             <url>dav:http://code.alibabatech.com/schema/dubbo/</url>
                             <serverId>opensesame.releases.account</serverId>
-                        </configuration>
+                        </config>
                     </execution>
                 </executions>
             </plugin>

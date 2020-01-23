@@ -108,7 +108,7 @@ public class ConfigUtils {
             names.remove(Constants.DEFAULT_KEY);
         }
 
-        // merge - configuration
+        // merge - config
         for (String name : new ArrayList<String>(names)) {
             if (name.startsWith(Constants.REMOVE_VALUE_PREFIX)) {
                 names.remove(name);

@@ -21,16 +21,16 @@
     http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd
     ">
 
-    <!-- current application configuration -->
+    <!-- current application config -->
     <dubbo:application name="demo-provider"/>
 
-    <!-- register center configuration -->
+    <!-- register center config -->
     <dubbo:registry address="127.0.0.1:4548"/>
 
-    <!-- protocol configuration -->
+    <!-- protocol config -->
     <dubbo:protocol name="dubbo" port="20888"/>
 
-    <!-- service configuration -->
+    <!-- service config -->
     <dubbo:service interface="com.alibaba.dubbo.config.spring.api.DemoService" ref="demoService" delay="-1"/>
 
     <bean id="demoService" class="com.alibaba.dubbo.config.spring.impl.DemoServiceImpl"/>
