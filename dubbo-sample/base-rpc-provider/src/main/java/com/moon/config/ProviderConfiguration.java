@@ -14,14 +14,5 @@ import org.springframework.boot.SpringBootConfiguration;
 @SpringBootConfiguration
 public class ProviderConfiguration {
 
-    /**
-     * spring容器启动时创建OrderService实例
-     *
-     * @return OrderService
-     */
-    /*@Bean
-    public OrderService orderService() {
-        return new OrderServiceImpl();
-    }*/
 
 }
