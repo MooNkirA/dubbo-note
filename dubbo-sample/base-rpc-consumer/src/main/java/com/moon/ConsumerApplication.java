@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
@@ -31,7 +30,7 @@ public class ConsumerApplication {
 
     public static void main(String[] args) throws RemoteException, NotBoundException, MalformedURLException {
         // 启动容器
-        ConfigurableApplicationContext context = SpringApplication.run(ConsumerApplication.class, args);
+        SpringApplication.run(ConsumerApplication.class, args);
 
         LOGGER.info("---------spring启动成功--------");
 
@@ -42,16 +41,20 @@ public class ConsumerApplication {
         LOGGER.info("测试orderService.getDetail调用功能，调用结果：{}", JSON.toJSONString(entiry));*/
 
         /* 1. 测试远程服务调用实现 */
-        //取远程服务实现
+        // 获取远程服务实现
         InfoService infoService = (InfoService) Naming.lookup(InfoService.RMI_URL);
         Object ret = infoService.sayHello("MooNzerO");
         LOGGER.info("测试远程调用功能InfoService.sayHello()，调用结果：{}", JSON.toJSONString(ret));
 
-        /* 封装需要网络传输的反射调用信息 */
-        /*Map<String, String> info = new HashMap();
+        /* 2. 测试远程服务反射调用实现 */
+        // 封装需要网络传输的反射调用信息
+        Map<String, String> info = new HashMap<>();
         info.put("target", "com.moon.service.OrderService");
         info.put("methodName", "getDetail");
-        info.put("arg", "1");*/
+        info.put("arg", "1");
+        // 调用传输数据方法
+        Object result = infoService.passInfo(info);
+        LOGGER.info("测试远程调用功能InfoService.sayHello()，调用结果：{}", JSON.toJSONString(result));
 
     }
 

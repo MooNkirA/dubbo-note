@@ -34,7 +34,7 @@ public class ProviderApplication {
     /* 日志对象 */
     private static final Logger LOGGER = LoggerFactory.getLogger(ProviderApplication.class);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MalformedURLException, RemoteException, AlreadyBoundException {
         // 启动容器
         ConfigurableApplicationContext context = SpringApplication.run(ProviderApplication.class, args);
 
@@ -56,24 +56,19 @@ public class ProviderApplication {
         LOGGER.info("测试InvokeUtils.call调用功能，调用结果：{}", JSON.toJSONString(result));
 
         /* 3. 通过rmi网络通信进行调用接口 */
-        try {
-            // 模拟创建RmiServer，将Rmi实例绑定注册
-            InfoService infoService = new InfoServiceImpl();
+        initProtocol();
+    }
 
-            // 注冊通讯端口
-            LocateRegistry.createRegistry(InfoService.port);
-            // 注冊通讯路径
-            Naming.bind(InfoService.RMI_URL, infoService);
-            LOGGER.info("初始化RMI绑定");
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (AlreadyBoundException e) {
-            e.printStackTrace();
-        }
-
-
+    /**
+     * 初始化RmiServer，将Rmi实例绑定注册
+     */
+    private static void initProtocol() throws RemoteException, AlreadyBoundException, MalformedURLException {
+        InfoService infoService = new InfoServiceImpl();
+        // 注冊通讯端口
+        LocateRegistry.createRegistry(InfoService.port);
+        // 注冊通讯路径
+        Naming.bind(InfoService.RMI_URL, infoService);
+        LOGGER.info("初始化RMI绑定");
     }
 
 }
