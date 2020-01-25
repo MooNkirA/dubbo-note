@@ -15,6 +15,7 @@
     <modules>
         <module>base-rpc-provider</module>
         <module>busi-api</module>
+        <module>base-rpc-consumer</module>
     </modules>
 
     <!-- 版本号管理 -->
