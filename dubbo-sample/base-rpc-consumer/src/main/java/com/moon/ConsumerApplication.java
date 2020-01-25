@@ -41,7 +41,7 @@ public class ConsumerApplication {
         LOGGER.info("测试orderService.getDetail调用功能，调用结果：{}", JSON.toJSONString(entiry));*/
 
         /* 1. 测试远程服务调用实现 */
-        // 获取远程服务实现
+        // 创建rmi连接，获取远程服务实现
         InfoService infoService = (InfoService) Naming.lookup(InfoService.RMI_URL);
         Object ret = infoService.sayHello("MooNzerO");
         LOGGER.info("测试远程调用功能InfoService.sayHello()，调用结果：{}", JSON.toJSONString(ret));
@@ -54,7 +54,7 @@ public class ConsumerApplication {
         info.put("arg", "1");
         // 调用传输数据方法
         Object result = infoService.passInfo(info);
-        LOGGER.info("测试远程调用功能InfoService.sayHello()，调用结果：{}", JSON.toJSONString(result));
+        LOGGER.info("测试远程调用功能InfoService.passInfo()，调用结果：{}", JSON.toJSONString(result));
 
     }
 
