@@ -58,7 +58,6 @@ public class ConsumerApplication {
         Object result = infoService.passInfo(info);
         LOGGER.info("测试远程调用功能InfoService.passInfo()，调用结果：{}", JSON.toJSONString(result));*/
 
-
         /* 3. 优化改造，使用静态代理封装参数准备的过程 */
         OrderService orderService = getService(infoService);
         // 透明化调用，不需要调用者去关心调用的准备工作
