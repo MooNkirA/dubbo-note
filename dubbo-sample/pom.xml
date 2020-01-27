@@ -21,6 +21,8 @@
         <module>busi-xml-client</module>
         <module>busi-annotation-provider</module>
         <module>busi-annotation-consumer</module>
+        <module>busi-api-provider</module>
+        <module>busi-api-consumer</module>
     </modules>
 
     <!-- 版本号管理 -->
