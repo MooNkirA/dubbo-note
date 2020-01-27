@@ -16,9 +16,9 @@ import org.springframework.context.annotation.Configuration;
  * @date 2020-1-26 16:12
  * @description
  */
-@Configuration
+// @Configuration
 // 开启dubbo注解扫描，指定Spring扫描包路径
-@EnableDubbo(scanBasePackages = "com.moon.dubbo.annotation.service")
+// @EnableDubbo(scanBasePackages = "com.moon.dubbo.annotation.service")
 public class ProviderConfiguration {
 
     /**
