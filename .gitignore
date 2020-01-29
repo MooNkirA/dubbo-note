@@ -37,6 +37,8 @@ target
 *.ipr
 *.iml
 *.iws
+# idea tomcat output
+out/*
 
 # eclipse ignore
 .classpath

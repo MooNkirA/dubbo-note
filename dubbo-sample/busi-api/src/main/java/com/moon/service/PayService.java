@@ -10,7 +10,7 @@ package com.moon.service;
  */
 public interface PayService {
 
-    boolean pay(long money);
+    String pay(long money);
 
     boolean cancelPay(long money);
 
