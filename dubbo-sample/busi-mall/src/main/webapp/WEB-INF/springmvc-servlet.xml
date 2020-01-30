@@ -14,7 +14,8 @@
     <!-- 开启自动扫描注解 -->
     <context:component-scan base-package="com.moon"/>
 
-    <bean id="productService" class="ProductServiceImpl"/>
+    <bean id="productService" class="com.moon.service.impl.ProductServiceImpl"/>
+    <!-- 事件通知的回调处理类 -->
     <bean id="callBack" class="com.moon.service.impl.CallBack"/>
 
     <!-- 定义跳转的文件的前后缀 ，视图模式配置 -->

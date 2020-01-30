@@ -1,5 +1,6 @@
 package com.moon.controller;
 
+import com.alibaba.dubbo.rpc.RpcContext;
 import com.moon.entity.OrderEntiry;
 import com.moon.entity.ProductEntiry;
 import com.moon.entity.UserEntiry;
@@ -51,7 +52,7 @@ public class IndexController {
      */
     @RequestMapping(value = "/async", method = RequestMethod.GET)
     public String cancel(HttpServletRequest request, HttpServletResponse response) {
-        /*long start = System.currentTimeMillis();
+        long start = System.currentTimeMillis();
 
         // 若设置了async=true，方法立即返回null
         UserEntiry user = userService.getDetail("1");
@@ -61,9 +62,9 @@ public class IndexController {
         String pay = payService.pay(100);
         Future<String> payFuture = RpcContext.getContext().getFuture();
 
-        // Future取得返回值，此处阻塞
         try {
-            user = userEntiryFuture.get(); // 阻塞的
+            // 从Future中取得返回值，此处会阻塞，直到所以调用返回都获取后，再继续往下逻辑
+            user = userEntiryFuture.get();
             pay = payFuture.get();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -75,7 +76,7 @@ public class IndexController {
         request.setAttribute("pay", pay);
 
         long time = System.currentTimeMillis() - start;
-        request.setAttribute("time", time);*/
+        request.setAttribute("time", time);
 
         return "/async";
     }

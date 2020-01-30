@@ -23,35 +23,42 @@
     <!-- 注册中心地址 -->
     <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
 
-    <!--name指示使用什么协议：dubbo/rmi/rest-->
+    <!-- name指示使用什么协议：dubbo/rmi/rest -->
     <dubbo:protocol id="d1" name="dubbo" port="20880"/>
 
-    <!--全局配置-->
-    <dubbo:provider timeout="3000" group="test"/>
-    <dubbo:consumer/>
+    <!--
+        提供者全局配置
+            服务分组 group="test"
+     -->
+    <dubbo:provider timeout="3000"/>
+    <!--
+        消费者全局配置
+            容错重试次数retries="1" 与第一次连接是分开。这里设置为1，只相当于第一次连接失败后，重试1次
+     -->
+    <dubbo:consumer retries="1"/>
 
     <dubbo:service interface="com.moon.service.ProductService" ref="productService" protocol="d1"/>
 
-    <!--启动时不检查-->
-    <!--<dubbo:reference id="orderService" interface="com.enjoy.service.OrderService"-->
-    <!--loadbalance="roundrobin" timeout="1000" version="1.0"/>-->
-    <dubbo:reference id="orderService2" interface="com.moon.service.OrderService"
-    />
-    <!--check="false" -->
-    <!--retries="2" cluster="failover"-->
-    <!--loadbalance="roundrobin"-->
-    <!--cache="lru"-->
-    <!--group="group2"-->
-    <!--version="1.0"-->
+    <!--
+        启动时不检查 check="false"
+        响应超时检查 timeout="1000"  如果响应超过1秒，会报错
+        集群容错  cluster="failover" retries="2"，“failover”与“2”都是默认值，可以省略
+        负载均衡  loadbalance="roundrobin"  此示例为轮询
+        结果缓存  cache="lru"  基于最近最少使用原则删除多余缓存
+        服务分组  group="group2"
+        多版本    version="1.0"
+    -->
+    <dubbo:reference id="orderService" interface="com.moon.service.OrderService" check="false"/>
 
-    <!--异步调用-->
+    <!-- 异步调用 -->
     <dubbo:reference id="userService" interface="com.moon.service.UserService">
         <dubbo:method name="getDetail" async="true"/>
     </dubbo:reference>
     <dubbo:reference id="payService" interface="com.moon.service.PayService">
         <dubbo:method name="pay" async="true"/>
     </dubbo:reference>
-    <!--回调-->
+
+    <!-- 事件通告回调 -->
     <dubbo:reference id="errorService" interface="com.moon.service.ErrorService">
         <dubbo:method name="doSomeThing" onreturn="callBack.onSuccess" onthrow="callBack.onError"/>
     </dubbo:reference>

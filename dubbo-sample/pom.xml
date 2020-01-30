@@ -49,6 +49,7 @@
 
         <!-- spring boot 版本 -->
         <spring-boot.version>2.2.4.RELEASE</spring-boot.version>
+        <junit.version>4.12</junit.version>
     </properties>
 
     <!-- 锁定依赖版本 -->
