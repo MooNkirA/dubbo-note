@@ -1,6 +1,7 @@
 package com.moon.spi;
 
 import com.moon.service.InfoService;
+import org.junit.Test;
 
 import java.util.ServiceLoader;
 
