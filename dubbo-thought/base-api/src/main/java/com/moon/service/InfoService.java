@@ -16,15 +16,16 @@ import java.util.Map;
  * <p>
  * Dubbo SPI的作法：
  * 1.Dubbo 增强原生的SPI机制来更好的满足拓展要求，其以键值对的方式对接口的实现进行配置管理。
- * 2.Dubbo引入三个注解： SPI、Adaptive和Activate。
+ * 2.Dubbo引入三个注解： @SPI、@Adaptive和@Activate。
  * <p>
- * 只有标注了SPI注解的接口，才是Dubbo的菜
+ * 只有接口上标注 @SPI 注解，才能被Dubbo框架管理起来
  */
-@SPI("b")
+@SPI("b") // @SPI注解的值是指定默认的实现类对应的key值
 public interface InfoService {
     Object sayHello(String name);
 
     @Adaptive({"moon"})
 	// @Adaptive
     Object passInfo(String msg, URL url);
+
 }

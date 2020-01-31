@@ -1,0 +1,3 @@
+a=com.moon.service.impl.info.InfoServiceAImpl
+b=com.moon.service.impl.info.InfoServiceBImpl
+c=com.moon.service.impl.info.InfoServiceCImpl
