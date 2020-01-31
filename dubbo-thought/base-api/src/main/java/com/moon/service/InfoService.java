@@ -24,8 +24,8 @@ import java.util.Map;
 public interface InfoService {
     Object sayHello(String name);
 
-    @Adaptive({"moon"})
-	// @Adaptive
+    @Adaptive({"InfoService"})
+    // @Adaptive
     Object passInfo(String msg, URL url);
 
 }

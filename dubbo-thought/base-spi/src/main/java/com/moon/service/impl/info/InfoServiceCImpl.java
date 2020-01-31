@@ -1,9 +1,10 @@
 package com.moon.service.impl.info;
 
 import com.alibaba.dubbo.common.URL;
+import com.alibaba.dubbo.common.extension.Adaptive;
 import com.moon.service.InfoService;
 
-//@Adaptive
+// @Adaptive // 有@Adaptive注解的实现类，优先选择做为SPI扩展接口的适配类
 public class InfoServiceCImpl implements InfoService {
 
     @Override
