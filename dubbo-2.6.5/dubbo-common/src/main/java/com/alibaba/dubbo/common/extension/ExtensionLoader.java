@@ -100,6 +100,8 @@ public class ExtensionLoader<T> {
 
     private ExtensionLoader(Class<?> type) {
         this.type = type;
+        // 创建ExtensionFactory实例，ExtensionFactory是一个SPI扩展点。
+        // 创建ExtensionFactory扩展点时，因为AdaptiveExtensionFactory的实现类有@Adaptive注解，所以AdaptiveExtensionFactory会选择为最佳适配类
         objectFactory = (type == ExtensionFactory.class ? null : ExtensionLoader.getExtensionLoader(ExtensionFactory.class).getAdaptiveExtension());
     }
 
@@ -330,6 +332,7 @@ public class ExtensionLoader<T> {
      * Return default extension, return <code>null</code> if it's not configured.
      */
     public T getDefaultExtension() {
+        // 获取所有扩展类Class
         getExtensionClasses();
         if (null == cachedDefaultName || cachedDefaultName.length() == 0
                 || "true".equals(cachedDefaultName)) {
@@ -350,7 +353,9 @@ public class ExtensionLoader<T> {
     }
 
     public Set<String> getSupportedExtensions() {
+        // 获取所有扩展Class实现，放到map中，key为别名
         Map<String, Class<?>> clazzes = getExtensionClasses();
+        // new TreeSet<String>(clazzes.keySet())，根据别名排序
         return Collections.unmodifiableSet(new TreeSet<String>(clazzes.keySet()));
     }
 
@@ -497,18 +502,22 @@ public class ExtensionLoader<T> {
     }
 
     @SuppressWarnings("unchecked")
+    // 不管使用哪种加载方式，最终都执行此方法生成扩展实例
     private T createExtension(String name) {
         Class<?> clazz = getExtensionClasses().get(name);
         if (clazz == null) {
             throw findException(name);
         }
         try {
-            // 获取实例
+            // 先从缓存中获取实例
             T instance = (T) EXTENSION_INSTANCES.get(clazz);
             if (instance == null) {
+                // 如果缓存中没有实例则创建实例，再放到缓存中
+                // （注意：如果当前扩展实例有引用其他扩展的属性时，此时该属性为null）
                 EXTENSION_INSTANCES.putIfAbsent(clazz, clazz.newInstance());
                 instance = (T) EXTENSION_INSTANCES.get(clazz);
             }
+            // 此方法进行实例中有引用其他扩展的属性注入
             injectExtension(instance);
             Set<Class<?>> wrapperClasses = cachedWrapperClasses;
             if (wrapperClasses != null && !wrapperClasses.isEmpty()) {
@@ -527,6 +536,7 @@ public class ExtensionLoader<T> {
         try {
             if (objectFactory != null) {
                 for (Method method : instance.getClass().getMethods()) {
+                    // 查询以“set”开头的方法
                     if (method.getName().startsWith("set")
                             && method.getParameterTypes().length == 1
                             && Modifier.isPublic(method.getModifiers())) {
@@ -538,7 +548,9 @@ public class ExtensionLoader<T> {
                         }
                         Class<?> pt = method.getParameterTypes()[0];
                         try {
+                            // 截取方法名称，获取“set”之后字符串。如：setFooService --> fooService
                             String property = method.getName().length() > 3 ? method.getName().substring(3, 4).toLowerCase() + method.getName().substring(4) : "";
+                            // 根据ClassType与name来获取bean实例
                             Object object = objectFactory.getExtension(pt, property);
                             if (object != null) {
                                 method.invoke(instance, object);
@@ -738,7 +750,8 @@ public class ExtensionLoader<T> {
     @SuppressWarnings("unchecked")
     private T createAdaptiveExtension() {
         try {
-            return injectExtension((T) getAdaptiveExtensionClass().newInstance());
+            return
+                    ((T) getAdaptiveExtensionClass().newInstance());
         } catch (Exception e) {
             throw new IllegalStateException("Can not create adaptive extension " + type + ", cause: " + e.getMessage(), e);
         }
@@ -750,19 +763,29 @@ public class ExtensionLoader<T> {
         if (cachedAdaptiveClass != null) {
             return cachedAdaptiveClass;
         }
-        // 创建适配的扩展实现类实例
+        // 创建适配的扩展实现类Class（静态代理类）
         return cachedAdaptiveClass = createAdaptiveExtensionClass();
     }
 
     // 新创建一个class
     private Class<?> createAdaptiveExtensionClass() {
+        /* 此方法生成一个静态代理类的源代码字符串 */
         String code = createAdaptiveExtensionClassCode();
+
+        /* 输出一下生成的源代码字符串 start */
+        System.out.println("创建自适配代理类：" + type.getName());
+        System.out.println(code);
+        /* 输出一下生成的源代码字符串 end */
+
         ClassLoader classLoader = findClassLoader();
+        // 获取扩展加载器
         com.alibaba.dubbo.common.compiler.Compiler compiler = ExtensionLoader.getExtensionLoader(com.alibaba.dubbo.common.compiler.Compiler.class).getAdaptiveExtension();
+        // 编译后返回一个静态代理类实例
         return compiler.compile(code, classLoader);
     }
 
     private String createAdaptiveExtensionClassCode() {
+        // 创建一个StringBuilder，然后进行一系列的写源代码的逻辑
         StringBuilder codeBuilder = new StringBuilder();
         Method[] methods = type.getMethods();
         boolean hasAdaptiveAnnotation = false;

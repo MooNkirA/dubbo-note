@@ -30,6 +30,7 @@ import java.util.List;
 @Adaptive
 public class AdaptiveExtensionFactory implements ExtensionFactory {
 
+    /* 引入ExtensionFactory扩展点的所有实现类 */
     private final List<ExtensionFactory> factories;
 
     public AdaptiveExtensionFactory() {
