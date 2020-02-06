@@ -59,6 +59,7 @@ public class ReferenceBean<T> extends ReferenceConfig<T> implements FactoryBean,
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
+        // Dubbo框架SPI依赖注入扩展点 - Spring工厂类，将spring的ioc容器初始化
         SpringExtensionFactory.addApplicationContext(applicationContext);
     }
 

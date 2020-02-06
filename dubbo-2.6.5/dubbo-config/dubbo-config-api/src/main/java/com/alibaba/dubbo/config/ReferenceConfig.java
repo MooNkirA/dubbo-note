@@ -155,6 +155,7 @@ public class ReferenceConfig<T> extends AbstractReferenceConfig {
         return urls;
     }
 
+    /* 用于获取服务提供的代理对象 */
     public synchronized T get() {
         if (destroyed) {
             throw new IllegalStateException("Already destroyed!");
@@ -182,6 +183,7 @@ public class ReferenceConfig<T> extends AbstractReferenceConfig {
         ref = null;
     }
 
+    /* 通过网络协议，获取服务提供代理对象并注入 */
     private void init() {
         if (initialized) {
             return;
@@ -330,11 +332,13 @@ public class ReferenceConfig<T> extends AbstractReferenceConfig {
 
         //attributes are stored by system context.
         StaticContext.getSystemContext().putAll(attributes);
+        // 通过网络协议创建代理对象
         ref = createProxy(map);
         ConsumerModel consumerModel = new ConsumerModel(getUniqueServiceName(), this, ref, interfaceClass.getMethods());
         ApplicationModel.initConsumerModel(getUniqueServiceName(), consumerModel);
     }
 
+    /* 通过网络协议创建代理对象 */
     @SuppressWarnings({"unchecked", "rawtypes", "deprecation"})
     private T createProxy(Map<String, String> map) {
         URL tmpUrl = new URL("temp", "localhost", 0, map);
@@ -391,6 +395,7 @@ public class ReferenceConfig<T> extends AbstractReferenceConfig {
             }
 
             if (urls.size() == 1) {
+                // 通过网络协议获取一个Invoker对象
                 invoker = refprotocol.refer(interfaceClass, urls.get(0));
             } else {
                 List<Invoker<?>> invokers = new ArrayList<Invoker<?>>();
@@ -424,6 +429,7 @@ public class ReferenceConfig<T> extends AbstractReferenceConfig {
         if (logger.isInfoEnabled()) {
             logger.info("Refer dubbo service " + interfaceClass.getName() + " from url " + invoker.getUrl());
         }
+        // 将Invoker包装成动态代理
         // create service proxy
         return (T) proxyFactory.getProxy(invoker);
     }

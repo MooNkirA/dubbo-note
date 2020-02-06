@@ -101,6 +101,7 @@ public class ServiceAnnotationBeanPostProcessor implements BeanDefinitionRegistr
         Set<String> resolvedPackagesToScan = resolvePackagesToScan(packagesToScan);
 
         if (!CollectionUtils.isEmpty(resolvedPackagesToScan)) {
+            // 将标注@Service注解的Bean注册到容器中
             registerServiceBeans(resolvedPackagesToScan, registry);
         } else {
             if (logger.isWarnEnabled()) {
@@ -126,6 +127,7 @@ public class ServiceAnnotationBeanPostProcessor implements BeanDefinitionRegistr
 
         scanner.setBeanNameGenerator(beanNameGenerator);
 
+        // 标注@Service的类也在Spring容器中实例化
         scanner.addIncludeFilter(new AnnotationTypeFilter(Service.class));
 
         for (String packageToScan : packagesToScan) {
@@ -140,6 +142,7 @@ public class ServiceAnnotationBeanPostProcessor implements BeanDefinitionRegistr
             if (!CollectionUtils.isEmpty(beanDefinitionHolders)) {
 
                 for (BeanDefinitionHolder beanDefinitionHolder : beanDefinitionHolders) {
+                    // 注册成ServiceBean
                     registerServiceBean(beanDefinitionHolder, registry, scanner);
                 }
 
@@ -252,6 +255,7 @@ public class ServiceAnnotationBeanPostProcessor implements BeanDefinitionRegistr
 
         String annotatedServiceBeanName = beanDefinitionHolder.getBeanName();
 
+        // 创建ServiceBean
         AbstractBeanDefinition serviceBeanDefinition =
                 buildServiceBeanDefinition(service, interfaceClass, annotatedServiceBeanName);
 
@@ -365,15 +369,18 @@ public class ServiceAnnotationBeanPostProcessor implements BeanDefinitionRegistr
 
         BeanDefinitionBuilder builder = rootBeanDefinition(ServiceBean.class);
 
+        // 创建封装serviceBean的信息的BeanDefinition对象
         AbstractBeanDefinition beanDefinition = builder.getBeanDefinition();
 
         MutablePropertyValues propertyValues = beanDefinition.getPropertyValues();
 
+        // 父类组件信息，已在前一步组装完成。这里将以下属性忽略
         String[] ignoreAttributeNames = of("provider", "monitor", "application", "module", "registry", "protocol", "interface");
 
         propertyValues.addPropertyValues(new AnnotationPropertyValuesAdapter(service, environment, ignoreAttributeNames));
 
         // References "ref" property to annotated-@Service Bean
+        // 将References标签对应的ref值与Service的BeanName关系绑定起来
         addPropertyReference(builder, "ref", annotatedServiceBeanName);
         // Set interface
         builder.addPropertyValue("interface", interfaceClass.getName());

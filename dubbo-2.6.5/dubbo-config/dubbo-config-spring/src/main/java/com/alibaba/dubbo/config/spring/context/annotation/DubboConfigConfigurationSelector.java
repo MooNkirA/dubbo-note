@@ -41,8 +41,10 @@ public class DubboConfigConfigurationSelector implements ImportSelector, Ordered
         boolean multiple = attributes.getBoolean("multiple");
 
         if (multiple) {
+            // 多注册中心
             return of(DubboConfigConfiguration.Multiple.class.getName());
         } else {
+            // 单注册中心
             return of(DubboConfigConfiguration.Single.class.getName());
         }
     }

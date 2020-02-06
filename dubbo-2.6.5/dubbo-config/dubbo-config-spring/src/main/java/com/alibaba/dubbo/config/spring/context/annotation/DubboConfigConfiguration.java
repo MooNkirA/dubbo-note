@@ -48,6 +48,7 @@ public class DubboConfigConfiguration {
      * Single Dubbo {@link AbstractConfig Config} Bean Binding
      */
     @EnableDubboConfigBindings({
+            // 这里定义了properties文件对应的属性前缀的值，设置到相应的类中
             @EnableDubboConfigBinding(prefix = "dubbo.application", type = ApplicationConfig.class),
             @EnableDubboConfigBinding(prefix = "dubbo.module", type = ModuleConfig.class),
             @EnableDubboConfigBinding(prefix = "dubbo.registry", type = RegistryConfig.class),

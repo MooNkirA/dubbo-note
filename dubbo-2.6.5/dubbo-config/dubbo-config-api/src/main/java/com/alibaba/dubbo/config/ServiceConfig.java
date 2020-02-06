@@ -209,14 +209,15 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
             delayExportExecutor.schedule(new Runnable() {
                 @Override
                 public void run() {
-                    doExport();
+                    doExport(); // 服务暴露
                 }
             }, delay, TimeUnit.MILLISECONDS);
         } else {
-            doExport();
+            doExport();  // 服务暴露
         }
     }
 
+    /* 服务暴露 */
     protected synchronized void doExport() {
         if (unexported) {
             throw new IllegalStateException("Already unexported!");
@@ -314,6 +315,7 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
         if (path == null || path.length() == 0) {
             path = interfaceName;
         }
+        // 根据网络协议进行暴露
         doExportUrls();
         ProviderModel providerModel = new ProviderModel(getUniqueServiceName(), this, ref);
         ApplicationModel.initProviderModel(getUniqueServiceName(), providerModel);
@@ -354,7 +356,9 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
     @SuppressWarnings({"unchecked", "rawtypes"})
     private void doExportUrls() {
         List<URL> registryURLs = loadRegistries(true);
+        // 查询当前配置那些网络协议
         for (ProtocolConfig protocolConfig : protocols) {
+            // 对每个网络协议进行暴露
             doExportUrlsFor1Protocol(protocolConfig, registryURLs);
         }
     }
@@ -507,13 +511,17 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
                             registryURL = registryURL.addParameter(Constants.PROXY_KEY, proxy);
                         }
 
+                        // 包装成服务实例。此ref是ServiceBean的属性，是@Service注解对应的类，目标业务类
                         Invoker<?> invoker = proxyFactory.getInvoker(ref, (Class) interfaceClass, registryURL.addParameterAndEncoded(Constants.EXPORT_KEY, url.toFullString()));
                         DelegateProviderMetaDataInvoker wrapperInvoker = new DelegateProviderMetaDataInvoker(invoker, this);
 
+                        // 暴露服务
                         Exporter<?> exporter = protocol.export(wrapperInvoker);
                         exporters.add(exporter);
                     }
                 } else {
+                    // 通过proxyFactory创建一个代理对象
+                    // 此ref是ServiceBean的属性，是@Service注解对应的类
                     Invoker<?> invoker = proxyFactory.getInvoker(ref, (Class) interfaceClass, url);
                     DelegateProviderMetaDataInvoker wrapperInvoker = new DelegateProviderMetaDataInvoker(invoker, this);
 

@@ -48,6 +48,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
+// 引入DubboConfigBindingRegistrar类，用于解析properties文件前缀属性值与相应的类绑定
 @Import(DubboConfigBindingRegistrar.class)
 public @interface EnableDubboConfigBinding {
 

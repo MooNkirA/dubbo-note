@@ -85,7 +85,10 @@ public class ServiceBean<T> extends ServiceConfig<T> implements InitializingBean
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
+
+        // Dubbo框架SPI依赖注入扩展点 - Spring工厂类，将spring的ioc容器初始化
         SpringExtensionFactory.addApplicationContext(applicationContext);
+
         if (applicationContext != null) {
             SPRING_CONTEXT = applicationContext;
             try {
@@ -141,9 +144,11 @@ public class ServiceBean<T> extends ServiceConfig<T> implements InitializingBean
         return supportedApplicationListener && (delay == null || delay == -1);
     }
 
+    /* ServiceBean创建完成后，调用此方法，主要功能是完成服务的暴露 */
     @Override
     @SuppressWarnings({"unchecked", "deprecation"})
     public void afterPropertiesSet() throws Exception {
+        // 进行校验工作
         if (getProvider() == null) {
             Map<String, ProviderConfig> providerConfigMap = applicationContext == null ? null : BeanFactoryUtils.beansOfTypeIncludingAncestors(applicationContext, ProviderConfig.class, false, false);
             if (providerConfigMap != null && providerConfigMap.size() > 0) {
@@ -269,6 +274,7 @@ public class ServiceBean<T> extends ServiceConfig<T> implements InitializingBean
             }
         }
         if (!isDelay()) {
+            // 将dubbo服务暴露到rpc网络
             export();
         }
     }
