@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * Stream utils.
+ * Stream util.
  */
 public class StreamUtils {
     private StreamUtils() {

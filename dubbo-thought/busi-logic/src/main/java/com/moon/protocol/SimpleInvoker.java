@@ -41,6 +41,7 @@ public class SimpleInvoker<T> implements Invoker<T> {
         Method method = null;
         try {
             method = DemoService.class.getMethod(invocation.getMethodName(), invocation.getParameterTypes());
+            // 通过反射调用目标target
             return new RpcResult(method.invoke(target, invocation.getArguments()));
         } catch (NoSuchMethodException e) {
             e.printStackTrace();

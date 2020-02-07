@@ -194,6 +194,7 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
 
     public synchronized void export() {
         if (provider != null) {
+            // 获取 export 和 delay 配置
             if (export == null) {
                 export = provider.getExport();
             }
@@ -201,10 +202,12 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
                 delay = provider.getDelay();
             }
         }
+        // 如果 export 为 false，则不导出服务
         if (export != null && !export) {
             return;
         }
 
+        // delay > 0，延时导出服务
         if (delay != null && delay > 0) {
             delayExportExecutor.schedule(new Runnable() {
                 @Override
@@ -213,7 +216,7 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
                 }
             }, delay, TimeUnit.MILLISECONDS);
         } else {
-            doExport();  // 服务暴露
+            doExport();  // 立即导出（暴露）服务
         }
     }
 

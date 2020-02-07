@@ -35,9 +35,10 @@ public class RpcProtocolTest {
     public void invoker2protocol() throws IOException {
         DemoService service = new DemoServiceImpl();
 
+        // 这里将目标对象（即DemoService实例）引入到Invoker中
         Invoker<DemoService> invoker = new SimpleInvoker(service, DemoService.class, url);
         Protocol protocol = new RmiProtocol();
-        // 暴露对象
+        // 暴露对象。协议对象只需要调用即可
         protocol.export(invoker);
         System.out.println("Dubbo server 启动");
         // 保证服务一直开着
@@ -67,6 +68,5 @@ public class RpcProtocolTest {
         String result = service.sayHello("moon");
         System.out.println(result);
     }
-
 
 }

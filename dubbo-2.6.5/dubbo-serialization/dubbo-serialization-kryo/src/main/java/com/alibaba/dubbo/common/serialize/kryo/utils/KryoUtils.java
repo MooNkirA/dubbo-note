@@ -19,7 +19,7 @@ package com.alibaba.dubbo.common.serialize.kryo.utils;
 import com.esotericsoftware.kryo.Kryo;
 
 /**
- * The kryo utils used by dubbo
+ * The kryo util used by dubbo
  *
  * @since 2.6.0
  */

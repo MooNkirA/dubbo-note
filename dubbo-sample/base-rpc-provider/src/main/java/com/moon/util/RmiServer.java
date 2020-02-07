@@ -1,4 +1,4 @@
-package com.moon.utils;
+package com.moon.util;
 
 import com.moon.service.InfoService;
 import com.moon.service.InfoServiceImpl;

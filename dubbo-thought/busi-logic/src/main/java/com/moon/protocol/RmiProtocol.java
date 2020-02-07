@@ -43,12 +43,18 @@ public class RmiProtocol implements Protocol {
         rmiServiceExporter.setServiceName(invoker.getUrl().getPath());
         rmiServiceExporter.setServiceInterface(invoker.getInterface());
 
-        // 此时目标服务没有，需要通过invoker调通，使用动态代理
+        /*
+         * 此时目标服务没有，需要通过invoker调通，使用动态代理
+         *   这里希望通过invoker对象，制作一个target服务代理来使用
+         */
         T service = (T) Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(),
                 new Class[]{invoker.getInterface()},
                 new InvokerInvocationHandler(invoker));
 
-        // 如果能获取目标Service接口，直接设置即可
+        /*
+         * 如果能获取目标Service接口，直接设置即可
+         *   protocol协议的目标，都是要将调用转到目标target服务上，但是当前环境并没有这个目标target
+         */
         rmiServiceExporter.setService(service);
         try {
             rmiServiceExporter.afterPropertiesSet();

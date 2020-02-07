@@ -1,4 +1,4 @@
-package com.moon.utils;
+package com.moon.util;
 
 import org.springframework.context.ApplicationContext;
 
