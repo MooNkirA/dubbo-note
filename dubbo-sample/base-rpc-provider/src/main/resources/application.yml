@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: base-rpc-provider
+server:
+  port: 8001
+  servlet:
+    context-path: / # 项目contextPath
+    tomcat:
+      uri-encoding: UTF-8 # tomcat的URI编码
+      max-threads: 800 # tomcat最大线程数，默认为200
+      min-spare-threads: 30 # Tomcat启动初始化的线程数，默认值25
+# 配置日志
+logging:
+  # 级别控制，例：logging.level.com.moon=DEBUG：com.moon包下所有class以DEBUG级别输出。
+  level:
+    com.moon: debug

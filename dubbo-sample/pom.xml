@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.moon</groupId>
+    <artifactId>dubbo-sample</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>${project.artifactId}</name>
+    <description>dubbo框架使用示例</description>
+
+    <!-- 相关模块 -->
+    <modules>
+        <module>base-rpc-provider</module>
+        <module>busi-api</module>
+        <module>base-rpc-consumer</module>
+        <module>busi-xml-server</module>
+        <module>busi-xml-client</module>
+        <module>busi-xml-client</module>
+        <module>busi-annotation-provider</module>
+        <module>busi-annotation-consumer</module>
+        <module>busi-api-provider</module>
+        <module>busi-api-consumer</module>
+        <module>busi-mvc</module>
+        <module>busi-mall</module>
+    </modules>
+
+    <!-- 版本号管理 -->
+    <properties>
+        <!-- 当前项目版本号 -->
+        <dubbo-sample.version>1.0-SNAPSHOT</dubbo-sample.version>
+
+        <!-- maven插件版本 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <!-- dubbo版本 -->
+        <dubbo.version>2.6.9</dubbo.version>
+        <spring.version>5.2.3.RELEASE</spring.version>
+        <curator-client.version>2.13.0</curator-client.version>
+        <curator.version>2.13.0</curator.version>
+        <!-- netty版本 -->
+        <netty.version>4.1.32.Final</netty.version>
+        <!-- fastjson版本 -->
+        <fastjson.version>1.2.56</fastjson.version>
+
+        <!-- spring boot 版本 -->
+        <spring-boot.version>2.2.4.RELEASE</spring-boot.version>
+        <junit.version>4.12</junit.version>
+    </properties>
+
+    <!-- 锁定依赖版本 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- SpringBoot的依赖配置 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- 本项目子工程 start -->
+            <dependency>
+                <groupId>com.moon</groupId>
+                <artifactId>busi-api</artifactId>
+                <version>${dubbo-sample.version}</version>
+            </dependency>
+            <!-- 本项目子工程 end -->
+
+            <!-- spring支持 -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <!-- alibaba fastjson -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <!-- SpringMVC -->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>2.5</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <!-- dubbo -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+            <!-- zookeeper注册中心 -->
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-framework</artifactId>
+                <version>${curator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- Package as an executable jar -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

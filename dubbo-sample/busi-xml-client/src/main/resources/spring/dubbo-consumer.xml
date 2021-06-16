@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	    http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 服务消费方应用名称, 方便用于依赖跟踪 -->
+    <dubbo:application name="busi-xml-client"/>
+    <!-- 使用本地zookeeper作为注册中心 -->
+    <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
+
+    <!-- 服务消费者引用服务配置 -->
+    <dubbo:reference id="orderService" interface="com.moon.service.OrderService"/>
+
+</beans>
