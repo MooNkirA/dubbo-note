@@ -18,6 +18,7 @@
         <module>01-zookeeper-api</module>
         <module>02-zkclient-api</module>
         <module>03-curator-api</module>
+        <module>04-distributed-lock</module>
     </modules>
 
     <!-- 版本号管理 -->
