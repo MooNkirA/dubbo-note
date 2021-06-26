@@ -9,7 +9,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * ubbo服务消费者 - 基于API配置方式
+ * dubbo服务消费者 - 基于API配置方式
+ *
  * @author MoonZero
  * @version 1.0
  * @date 2020-1-27 12:17

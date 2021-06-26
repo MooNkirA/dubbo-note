@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 /**
- * 服务提供者配置类 - 用于配置提供者需要几个主要注解
+ * 服务提供者配置类 - 用于配置提供者需要几个主要注解（加载配置文件式配置）
  *
  * @author MoonZero
  * @version 1.0

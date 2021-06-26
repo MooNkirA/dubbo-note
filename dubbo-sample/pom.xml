@@ -13,9 +13,7 @@
 
     <!-- 相关模块 -->
     <modules>
-        <module>base-rpc-provider</module>
         <module>busi-api</module>
-        <module>base-rpc-consumer</module>
         <module>busi-xml-server</module>
         <module>busi-xml-client</module>
         <module>busi-xml-client</module>
@@ -25,6 +23,7 @@
         <module>busi-api-consumer</module>
         <module>busi-mvc</module>
         <module>busi-mall</module>
+        <module>base-rpc</module>
     </modules>
 
     <!-- 版本号管理 -->

@@ -3,15 +3,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>dubbo-sample</artifactId>
+        <artifactId>base-rpc</artifactId>
         <groupId>com.moon</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>base-rpc-provider</artifactId>
+    <artifactId>base-rpc-consumer</artifactId>
     <name>${project.artifactId}</name>
     <packaging>jar</packaging>
-    <description>基础RPC提供者示例工程</description>
+    <description>基础RPC消费者示例工程</description>
 
     <dependencies>
         <!-- 依赖接口工程 -->
