@@ -13,9 +13,8 @@
 
     <!-- 相关模块 -->
     <modules>
-        <module>busi-api</module>
+        <module>service-api</module>
         <module>busi-xml-server</module>
-        <module>busi-xml-client</module>
         <module>busi-xml-client</module>
         <module>busi-annotation-provider</module>
         <module>busi-annotation-consumer</module>
@@ -24,6 +23,9 @@
         <module>busi-mvc</module>
         <module>busi-mall</module>
         <module>base-rpc</module>
+        <module>dubbo-sample-xml</module>
+        <module>dubbo-sample-annotation</module>
+        <module>dubbo-sample-api</module>
     </modules>
 
     <!-- 版本号管理 -->
@@ -66,7 +68,7 @@
             <!-- 本项目子工程 start -->
             <dependency>
                 <groupId>com.moon</groupId>
-                <artifactId>busi-api</artifactId>
+                <artifactId>service-api</artifactId>
                 <version>${dubbo-sample.version}</version>
             </dependency>
             <!-- 本项目子工程 end -->

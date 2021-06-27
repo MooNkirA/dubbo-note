@@ -17,7 +17,7 @@
         <!-- 依赖接口工程 -->
         <dependency>
             <groupId>com.moon</groupId>
-            <artifactId>busi-api</artifactId>
+            <artifactId>service-api</artifactId>
         </dependency>
 
         <!-- SpringMVC -->

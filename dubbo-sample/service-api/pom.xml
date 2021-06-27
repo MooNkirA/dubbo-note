@@ -9,7 +9,7 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>busi-api</artifactId>
+    <artifactId>service-api</artifactId>
     <name>${project.artifactId}</name>
     <packaging>jar</packaging>
     <description>业务API接口工程</description>
