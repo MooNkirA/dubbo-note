@@ -2,7 +2,7 @@ package com.moon.spi;
 
 import com.alibaba.dubbo.common.URL;
 import com.alibaba.dubbo.common.extension.ExtensionLoader;
-import com.moon.config.ProviderConfiguration;
+import com.moon.rpc.config.ProviderConfiguration;
 import com.moon.service.OrderService;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

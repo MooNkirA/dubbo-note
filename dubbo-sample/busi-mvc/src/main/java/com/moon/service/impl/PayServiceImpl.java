@@ -1,7 +1,7 @@
 package com.moon.service.impl;
 
 
-import com.moon.service.PayService;
+import com.moon.dubbo.service.PayService;
 
 public class PayServiceImpl implements PayService {
     @Override

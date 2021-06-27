@@ -1,9 +1,9 @@
 package com.moon.controller;
 
-import com.moon.entity.OrderEntiry;
-import com.moon.entity.ProductEntiry;
-import com.moon.service.OrderService;
-import com.moon.service.ProductService;
+import com.moon.dubbo.entity.OrderEntiry;
+import com.moon.dubbo.entity.ProductEntiry;
+import com.moon.dubbo.service.OrderService;
+import com.moon.dubbo.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

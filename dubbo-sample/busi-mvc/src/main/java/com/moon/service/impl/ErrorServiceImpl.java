@@ -1,6 +1,6 @@
 package com.moon.service.impl;
 
-import com.moon.service.ErrorService;
+import com.moon.dubbo.service.ErrorService;
 
 public class ErrorServiceImpl implements ErrorService {
 

@@ -1,6 +1,6 @@
 package com.moon;
 
-import com.moon.config.BeanDefinitionTestConfiguration;
+import com.moon.rpc.config.BeanDefinitionTestConfiguration;
 import com.moon.service.DemoService;
 import com.moon.service.impl.spring.DemoServiceImpl;
 import org.junit.Test;

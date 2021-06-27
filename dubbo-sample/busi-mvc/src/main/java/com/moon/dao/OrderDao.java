@@ -1,6 +1,6 @@
 package com.moon.dao;
 
-import com.moon.entity.OrderEntiry;
+import com.moon.dubbo.entity.OrderEntiry;
 
 /**
  * 订单数据访问接口

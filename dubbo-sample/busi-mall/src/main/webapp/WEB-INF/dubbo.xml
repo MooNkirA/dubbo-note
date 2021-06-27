@@ -37,7 +37,7 @@
      -->
     <dubbo:consumer retries="1"/>
 
-    <dubbo:service interface="com.moon.service.ProductService" ref="productService" protocol="d1"/>
+    <dubbo:service interface="com.moon.dubbo.service.ProductService" ref="productService" protocol="d1"/>
 
     <!--
         启动时不检查 check="false"
@@ -48,18 +48,18 @@
         服务分组  group="group2"
         多版本    version="1.0"
     -->
-    <dubbo:reference id="orderService" interface="com.moon.service.OrderService" check="false"/>
+    <dubbo:reference id="orderService" interface="com.moon.dubbo.service.OrderService" check="false"/>
 
     <!-- 异步调用 -->
-    <dubbo:reference id="userService" interface="com.moon.service.UserService">
+    <dubbo:reference id="userService" interface="com.moon.dubbo.service.UserService">
         <dubbo:method name="getDetail" async="true"/>
     </dubbo:reference>
-    <dubbo:reference id="payService" interface="com.moon.service.PayService">
+    <dubbo:reference id="payService" interface="com.moon.dubbo.service.PayService">
         <dubbo:method name="pay" async="true"/>
     </dubbo:reference>
 
     <!-- 事件通告回调 -->
-    <dubbo:reference id="errorService" interface="com.moon.service.ErrorService">
+    <dubbo:reference id="errorService" interface="com.moon.dubbo.service.ErrorService">
         <dubbo:method name="doSomeThing" onreturn="callBack.onSuccess" onthrow="callBack.onError"/>
     </dubbo:reference>
 
