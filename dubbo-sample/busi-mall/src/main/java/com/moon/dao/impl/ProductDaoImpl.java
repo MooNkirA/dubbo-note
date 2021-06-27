@@ -1,7 +1,7 @@
 package com.moon.dao.impl;
 
 import com.moon.dao.ProductDao;
-import com.moon.entity.ProductEntiry;
+import com.moon.dubbo.entity.ProductEntiry;
 import org.springframework.stereotype.Service;
 
 @Service

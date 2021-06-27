@@ -14,4 +14,9 @@
     <name>${project.artifactId}</name>
     <description>基于xml配置方式的dubbo示例项目</description>
 
+    <modules>
+        <module>dubbo-xml-provider</module>
+        <module>dubbo-xml-consumer</module>
+    </modules>
+
 </project>

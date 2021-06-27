@@ -1,6 +1,6 @@
 package com.moon.dao;
 
-import com.moon.entity.ProductEntiry;
+import com.moon.dubbo.entity.ProductEntiry;
 
 public interface ProductDao {
     ProductEntiry getDetail(String id);

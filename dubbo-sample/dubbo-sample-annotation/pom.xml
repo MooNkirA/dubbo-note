@@ -14,4 +14,9 @@
     <name>${project.artifactId}</name>
     <description>基于注解方式的dubbo示例项目</description>
 
+    <modules>
+        <module>dubbo-annotation-consumer</module>
+        <module>dubbo-annotation-provider</module>
+    </modules>
+
 </project>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	    http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://dubbo.apache.org/schema/dubbo
+        http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+    <!-- 全局配置 -->
+    <dubbo:provider timeout="3000"/>
+    <!-- 服务提供方应用名称, 方便用于依赖跟踪 -->
+    <dubbo:application name="dubbo-xml-provider"/>
+    <!-- 使用本地zookeeper作为注册中心 -->
+    <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
+
+    <!-- name指示使用什么协议监听端口：dubbo/rmi/rest -->
+    <dubbo:protocol id="d1" name="dubbo" port="20880"/>
+    <!-- 可以配置多个协议 -->
+    <dubbo:protocol id="d2" name="dubbo" port="20882"/>
+
+    <!-- 通过xml方式配置为bean, 让spring托管和实例化 -->
+    <bean id="orderService" class="com.moon.dubbo.xml.service.OrderServiceImpl"/>
+    <!--
+        服务配置。用于声明暴露一个服务（接口），定义服务的元信息，一个服务可以用多个协议暴露，一个服务也可以注册到多个注册中心
+            interface：服务接口名
+            ref：服务对象实现引用
+            timeout：远程服务调用超时时间(毫秒)
+            protocol：使用指定的协议暴露服务，在多协议时使用，值为<dubbo:protocol>的id属性，多个协议ID用逗号分隔
+     -->
+    <dubbo:service interface="com.moon.dubbo.service.OrderService" ref="orderService" protocol="d1" timeout="2000"/>
+
+</beans>

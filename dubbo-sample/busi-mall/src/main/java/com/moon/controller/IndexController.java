@@ -1,14 +1,14 @@
 package com.moon.controller;
 
 import com.alibaba.dubbo.rpc.RpcContext;
-import com.moon.entity.OrderEntiry;
-import com.moon.entity.ProductEntiry;
-import com.moon.entity.UserEntiry;
-import com.moon.service.ErrorService;
-import com.moon.service.OrderService;
-import com.moon.service.PayService;
-import com.moon.service.ProductService;
-import com.moon.service.UserService;
+import com.moon.dubbo.entity.OrderEntiry;
+import com.moon.dubbo.entity.ProductEntiry;
+import com.moon.dubbo.entity.UserEntiry;
+import com.moon.dubbo.service.ErrorService;
+import com.moon.dubbo.service.OrderService;
+import com.moon.dubbo.service.PayService;
+import com.moon.dubbo.service.ProductService;
+import com.moon.dubbo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

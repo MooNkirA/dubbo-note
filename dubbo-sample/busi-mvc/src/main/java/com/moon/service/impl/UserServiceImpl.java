@@ -1,7 +1,7 @@
 package com.moon.service.impl;
 
-import com.moon.entity.UserEntiry;
-import com.moon.service.UserService;
+import com.moon.dubbo.entity.UserEntiry;
+import com.moon.dubbo.service.UserService;
 
 public class UserServiceImpl implements UserService {
 

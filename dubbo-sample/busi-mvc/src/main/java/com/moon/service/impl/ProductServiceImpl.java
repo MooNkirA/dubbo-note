@@ -1,8 +1,8 @@
 package com.moon.service.impl;
 
 import com.moon.dao.ProductDao;
-import com.moon.entity.ProductEntiry;
-import com.moon.service.ProductService;
+import com.moon.dubbo.entity.ProductEntiry;
+import com.moon.dubbo.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.HashMap;

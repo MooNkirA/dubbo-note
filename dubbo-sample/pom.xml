@@ -14,12 +14,6 @@
     <!-- 相关模块 -->
     <modules>
         <module>service-api</module>
-        <module>busi-xml-server</module>
-        <module>busi-xml-client</module>
-        <module>busi-annotation-provider</module>
-        <module>busi-annotation-consumer</module>
-        <module>busi-api-provider</module>
-        <module>busi-api-consumer</module>
         <module>busi-mvc</module>
         <module>busi-mall</module>
         <module>base-rpc</module>
@@ -39,7 +33,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
 
         <!-- dubbo版本 -->
-        <dubbo.version>2.6.9</dubbo.version>
+        <dubbo.version>2.6.5</dubbo.version>
         <spring.version>5.2.3.RELEASE</spring.version>
         <curator-client.version>2.13.0</curator-client.version>
         <curator.version>2.13.0</curator.version>

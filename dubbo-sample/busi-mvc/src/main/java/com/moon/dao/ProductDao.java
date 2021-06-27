@@ -1,6 +1,6 @@
 package com.moon.dao;
 
-import com.moon.entity.ProductEntiry;
+import com.moon.dubbo.entity.ProductEntiry;
 
 /**
  * 产品数据访问接口

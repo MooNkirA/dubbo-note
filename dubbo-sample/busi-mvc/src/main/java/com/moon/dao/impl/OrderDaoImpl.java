@@ -1,7 +1,7 @@
 package com.moon.dao.impl;
 
 import com.moon.dao.OrderDao;
-import com.moon.entity.OrderEntiry;
+import com.moon.dubbo.entity.OrderEntiry;
 import org.springframework.stereotype.Repository;
 
 @Repository

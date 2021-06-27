@@ -14,4 +14,9 @@
     <name>${project.artifactId}</name>
     <description>基于API配置方式的dubbo示例项目</description>
 
+    <modules>
+        <module>dubbo-api-consumer</module>
+        <module>dubbo-api-provider</module>
+    </modules>
+
 </project>

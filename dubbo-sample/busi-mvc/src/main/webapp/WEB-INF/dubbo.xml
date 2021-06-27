@@ -31,12 +31,12 @@
     <dubbo:provider loadbalance="roundrobin" timeout="1000" retries="5" cache="lru"/>
     <dubbo:consumer timeout="1000"/>
 
-    <dubbo:service interface="com.moon.service.OrderService" ref="orderService" timeout="3000"/>
-    <dubbo:service interface="com.moon.service.PayService" ref="payService"/>
-    <dubbo:service interface="com.moon.service.UserService" ref="userService"/>
-    <dubbo:service interface="com.moon.service.ErrorService" ref="errorService"/>
+    <dubbo:service interface="com.moon.dubbo.service.OrderService" ref="orderService" timeout="3000"/>
+    <dubbo:service interface="com.moon.dubbo.service.PayService" ref="payService"/>
+    <dubbo:service interface="com.moon.dubbo.service.UserService" ref="userService"/>
+    <dubbo:service interface="com.moon.dubbo.service.ErrorService" ref="errorService"/>
     <dubbo:service interface="com.moon.service.UnknownService" ref="unknownService"/>
 
-    <dubbo:reference id="productService" interface="com.moon.service.ProductService" check="false"/>
+    <dubbo:reference id="productService" interface="com.moon.dubbo.service.ProductService" check="false"/>
 
 </beans>

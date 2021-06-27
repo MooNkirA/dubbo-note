@@ -1,8 +1,8 @@
 package com.moon.service.impl;
 
 import com.moon.dao.OrderDao;
-import com.moon.entity.OrderEntiry;
-import com.moon.service.OrderService;
+import com.moon.dubbo.entity.OrderEntiry;
+import com.moon.dubbo.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class OrderServiceImpl implements OrderService {
