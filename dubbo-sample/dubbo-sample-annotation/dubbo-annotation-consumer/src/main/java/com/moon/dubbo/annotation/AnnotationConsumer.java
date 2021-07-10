@@ -22,8 +22,8 @@ public class AnnotationConsumer {
         System.out.println("======== dubbo-annotation-consumer 服务启动成功 ========");
 
         // 获取控制层的实例
-        OrderController orderController = context.getBean(OrderController.class);
+        /*OrderController orderController = context.getBean(OrderController.class);
         OrderEntiry entiry = orderController.getDetail("1");
-        System.out.println("基于注解配置的消费者调用OrderService.getDetail()接口成功，result:  " + entiry.getMoney());
+        System.out.println("基于注解配置的消费者调用OrderService.getDetail()接口成功，result:  " + entiry.getMoney());*/
     }
 }

@@ -37,293 +37,294 @@
             <artifactId>dubbo-cluster</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!-- 将其修改为false或者注释，否则为会阻断依赖的传递，导致demo工程直接依赖此源码项目时无法依赖这些包 -->
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-common</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-config-api</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-config-spring</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-filter-cache</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-filter-validation</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-remoting-api</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-remoting-netty</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-remoting-netty4</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-remoting-mina</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-remoting-grizzly</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-remoting-p2p</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-remoting-http</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-rpc-api</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-rpc-dubbo</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-rpc-injvm</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-rpc-rmi</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-rpc-hessian</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-rpc-http</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-rpc-webservice</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-rpc-thrift</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-rpc-memcached</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-rpc-redis</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-rpc-rest</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-registry-api</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-registry-default</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-registry-multicast</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-registry-zookeeper</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-registry-redis</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-monitor-api</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-monitor-default</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-container-spring</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-container-log4j</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-container-logback</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-qos</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-serialization-api</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-serialization-fastjson</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-serialization-fst</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-serialization-hessian2</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-serialization-jdk</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-serialization-kryo</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>hessian-lite</artifactId>
             <scope>compile</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
 
         <!-- Transitive dependencies -->
@@ -346,14 +347,14 @@
             <artifactId>junit</artifactId>
             <version>${junit_version}</version>
             <scope>test</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib-nodep</artifactId>
             <version>${cglib_version}</version>
             <scope>test</scope>
-            <optional>true</optional>
+            <!--<optional>true</optional>-->
         </dependency>
     </dependencies>
     <build>

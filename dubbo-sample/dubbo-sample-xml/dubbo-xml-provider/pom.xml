@@ -32,13 +32,22 @@
             <artifactId>spring-context</artifactId>
         </dependency>
 
-        <!-- dubbo -->
         <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+        </dependency>
+
+        <!-- dubbo -->
+        <!--<dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-config-spring</artifactId>
             <version>${dubbo.version}</version>
         </dependency>
-        <!-- zookeeper注册中心 -->
+        &lt;!&ndash; zookeeper注册中心 &ndash;&gt;
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-registry-zookeeper</artifactId>
@@ -59,7 +68,7 @@
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-serialization-hessian2</artifactId>
             <version>${dubbo.version}</version>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
 </project>

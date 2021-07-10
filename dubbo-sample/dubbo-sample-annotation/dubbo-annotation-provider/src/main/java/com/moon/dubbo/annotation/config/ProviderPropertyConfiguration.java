@@ -12,7 +12,7 @@ import org.springframework.context.annotation.PropertySource;
  * @date 2020-1-26 16:12
  * @description
  */
-@Configuration
+// @Configuration
 // 开启dubbo注解扫描，指定Spring扫描包路径
 @EnableDubbo(scanBasePackages = "com.moon.dubbo.annotation.service")
 // 自动装配dubbo公共信息

@@ -1,0 +1,4 @@
+GET http://localhost:8006/order/getDetail?id=99
+Accept: application/json
+
+###
