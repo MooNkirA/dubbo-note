@@ -5,10 +5,7 @@ import com.moon.dubbo.entity.OrderEntiry;
 import com.moon.dubbo.service.OrderService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.ws.rs.GET;
 
 /**
  * 订单控制层，用于测试dubbo引用提供者暴露的服务接口
@@ -31,7 +28,9 @@ public class OrderController {
 
     @GetMapping("getDetail")
     public OrderEntiry getDetail(String id) {
-        return orderService.getDetail(id);
+        OrderEntiry result = orderService.getDetail(id);
+        System.out.println("基于注解配置的消费者调用OrderService.getDetail()接口成功，result:  " + result.getMoney());
+        return result;
     }
 
 }
