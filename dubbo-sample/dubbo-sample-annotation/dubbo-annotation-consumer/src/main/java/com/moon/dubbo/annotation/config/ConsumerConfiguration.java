@@ -16,9 +16,9 @@ import org.springframework.context.annotation.ComponentScan;
  * @date 2020-1-26 18:47
  * @description
  */
-// @SpringBootConfiguration
+@SpringBootConfiguration
 // 消费方开启dubbo注解扫描，指定需要扫描的包路径。扫描如：@Reference等注解
-// @EnableDubbo(scanBasePackages = {"com.moon.dubbo.annotation.controller"})
+@EnableDubbo(scanBasePackages = {"com.moon.dubbo.annotation.controller"})
 // 开启spring框架注解扫描功能。用于测试dubbo服务注入
 // @ComponentScan({"com.moon.dubbo.annotation.controller"})
 public class ConsumerConfiguration {
@@ -44,8 +44,12 @@ public class ConsumerConfiguration {
      */
     @Bean
     public ConsumerConfig consumerConfig() {
+        /*
+         * 相当于 <dubbo:consumer /> 标签
+         */
         ConsumerConfig consumerConfig = new ConsumerConfig();
         consumerConfig.setTimeout(3000);
+        consumerConfig.setCheck(true); // 属性check: 关闭所有服务的启动时检查 (没有提供者时报错)。默认值true(开启)
         return consumerConfig;
     }
 
@@ -57,10 +61,14 @@ public class ConsumerConfiguration {
      */
     @Bean
     public RegistryConfig registryConfig() {
+        /*
+         * 相当于 <dubbo:registry /> 标签
+         */
         RegistryConfig registryConfig = new RegistryConfig();
         registryConfig.setProtocol("zookeeper");
         registryConfig.setAddress("127.0.0.1");
         registryConfig.setPort(2181);
+        registryConfig.setCheck(true); // 属性check: 关闭注册中心启动时检查 (注册订阅失败时报错)。默认值true(开启)
         return registryConfig;
     }
 

@@ -19,11 +19,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("order")
 public class OrderController {
 
-    /**
+    /*
      * 使用@Reference注解自动注入dubbo框架提供方暴露的相应接口
      * 相当于xml配置文件中的<dubbo:reference />标签
+     *  属性check: 关闭某个服务的启动时检查 (没有提供者时报错)
+     *  属性retries: 设置重试次数，默认值是2
+     *  属性timeout: 设置超时时间，默认值是0
      */
-    @Reference
+    @Reference(check = false, retries = 3, timeout = 5000)
     private OrderService orderService;
 
     @GetMapping("getDetail")

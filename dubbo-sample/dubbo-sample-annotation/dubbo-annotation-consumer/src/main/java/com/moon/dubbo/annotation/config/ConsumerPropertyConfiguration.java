@@ -13,11 +13,11 @@ import org.springframework.context.annotation.PropertySource;
  * @date 2020-1-26 18:47
  * @description
  */
-@SpringBootConfiguration
+// @SpringBootConfiguration
 // 消费方开启dubbo注解扫描，指定需要扫描的包路径。扫描如：@Reference等注解
-@EnableDubbo(scanBasePackages = {"com.moon.dubbo.annotation.controller"})
+// @EnableDubbo(scanBasePackages = {"com.moon.dubbo.annotation.controller"})
 // 开启spring框架注解扫描功能。用于测试dubbo服务注入
-@ComponentScan({"com.moon.dubbo.annotation.controller"})
+// @ComponentScan({"com.moon.dubbo.annotation.controller"})
 // 自动装配dubbo公共信息
 @PropertySource("classpath:/dubbo-consumer.properties")
 public class ConsumerPropertyConfiguration {

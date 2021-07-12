@@ -9,10 +9,18 @@
 
     <!-- 服务消费方应用名称, 方便用于依赖跟踪 -->
     <dubbo:application name="dubbo-xml-consumer"/>
-    <!-- 使用本地zookeeper作为注册中心 -->
-    <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
+    <!-- 使用本地zookeeper作为注册中心
+        属性check: 关闭注册中心启动时检查 (注册订阅失败时报错)。默认值true(开启)
+     -->
+    <dubbo:registry address="zookeeper://127.0.0.1:2181" check="true"/>
+    <!-- dubbo:consumer 设置消费者全局属性
+        属性check: 关闭所有服务的启动时检查 (没有提供者时报错)。默认值true(开启)
+     -->
+    <dubbo:consumer check="true"/>
 
-    <!-- 服务消费者引用服务配置 -->
-    <dubbo:reference id="orderService" interface="com.moon.dubbo.service.OrderService"/>
+    <!-- dubbo:reference 服务消费者引用服务配置
+        属性check: 关闭某个服务的启动时检查 (没有提供者时报错)
+     -->
+    <dubbo:reference id="orderService" interface="com.moon.dubbo.service.OrderService" check="false"/>
 
 </beans>

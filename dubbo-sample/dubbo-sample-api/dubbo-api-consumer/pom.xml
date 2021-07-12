@@ -26,40 +26,21 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- spring支持 -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-        </dependency>
-
         <!-- dubbo -->
         <dependency>
             <groupId>com.alibaba</groupId>
-            <artifactId>dubbo-config-spring</artifactId>
-            <version>${dubbo.version}</version>
+            <artifactId>dubbo</artifactId>
         </dependency>
-        <!-- zookeeper注册中心 -->
+        <!-- zookeeper注册中心客户端依赖 -->
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>dubbo-registry-zookeeper</artifactId>
-            <version>${dubbo.version}</version>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>dubbo-rpc-dubbo</artifactId>
-            <version>${dubbo.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>dubbo-remoting-netty</artifactId>
-            <version>${dubbo.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>dubbo-serialization-hessian2</artifactId>
-            <version>${dubbo.version}</version>
-        </dependency>
     </dependencies>
 
 </project>
