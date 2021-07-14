@@ -33,17 +33,19 @@
         <maven.compiler.target>1.8</maven.compiler.target>
 
         <!-- dubbo版本 -->
-        <dubbo.version>2.6.5</dubbo.version>
-        <spring.version>5.2.3.RELEASE</spring.version>
-        <curator-client.version>2.13.0</curator-client.version>
+        <dubbo.version>2.6.9</dubbo.version>
+        <spring.version>5.2.13.RELEASE</spring.version>
+        <zookeeper.version>3.6.3</zookeeper.version>
         <curator.version>2.13.0</curator.version>
         <!-- netty版本 -->
-        <netty.version>4.1.32.Final</netty.version>
+        <netty.version>4.1.63.Final</netty.version>
         <!-- fastjson版本 -->
         <fastjson.version>1.2.56</fastjson.version>
+        <!-- 实体类插件 -->
+        <lombok.version>1.18.10</lombok.version>
 
         <!-- spring boot 版本 -->
-        <spring-boot.version>2.2.4.RELEASE</spring-boot.version>
+        <spring-boot.version>2.3.10.RELEASE</spring-boot.version>
         <junit.version>4.12</junit.version>
     </properties>
 
@@ -67,18 +69,6 @@
             </dependency>
             <!-- 本项目子工程 end -->
 
-            <!-- spring支持 -->
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-core</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-context</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-
             <!-- alibaba fastjson -->
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -92,11 +82,6 @@
                 <artifactId>servlet-api</artifactId>
                 <version>2.5</version>
             </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-webmvc</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
 
             <!-- dubbo -->
             <dependency>
@@ -104,7 +89,23 @@
                 <artifactId>dubbo</artifactId>
                 <version>${dubbo.version}</version>
             </dependency>
-            <!-- zookeeper注册中心 -->
+            <!-- zookeeper注册中心客户端 -->
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${zookeeper.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- zookeeper注册中心第三方客户端curator依赖 -->
             <dependency>
                 <groupId>org.apache.curator</groupId>
                 <artifactId>curator-framework</artifactId>
@@ -114,6 +115,12 @@
                 <groupId>io.netty</groupId>
                 <artifactId>netty-all</artifactId>
                 <version>${netty.version}</version>
+            </dependency>
+            <!-- lombok实体类插件 -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

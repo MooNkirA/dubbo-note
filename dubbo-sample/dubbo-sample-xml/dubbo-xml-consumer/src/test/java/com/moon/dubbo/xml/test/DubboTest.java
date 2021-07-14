@@ -1,11 +1,16 @@
-package com.moon.dubbo.xml;
+package com.moon.dubbo.xml.test;
 
 import com.alibaba.dubbo.rpc.service.EchoService;
 import com.alibaba.dubbo.rpc.service.GenericService;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-
+/**
+ * @author MooNkirA
+ * @version 1.0
+ * @date 2021-07-11 9:28
+ * @description
+ */
 public class DubboTest {
 
     /**

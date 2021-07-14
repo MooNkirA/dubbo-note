@@ -1,0 +1,4 @@
+GET http://127.0.0.1:8006/order/getDetail?id=99
+Accept: application/json
+
+###

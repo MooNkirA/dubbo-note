@@ -1,7 +1,10 @@
 package com.moon.dubbo.entity;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
+@Data
 public class UserEntiry implements Serializable {
 
     private static final long serialVersionUID = 4687671958685364776L;
@@ -10,35 +13,4 @@ public class UserEntiry implements Serializable {
     private String address;
     private long balance;
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public long getBalance() {
-        return balance;
-    }
-
-    public void setBalance(long balance) {
-        this.balance = balance;
-    }
 }

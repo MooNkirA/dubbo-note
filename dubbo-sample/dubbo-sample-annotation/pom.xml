@@ -12,7 +12,11 @@
     <artifactId>dubbo-sample-annotation</artifactId>
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
-    <description>基于注解方式的dubbo示例项目</description>
+    <description>
+        基于注解方式的dubbo示例项目
+        provider 服务提供方端口：8005
+        consumer 服务消费方端口：8006
+    </description>
 
     <modules>
         <module>dubbo-annotation-consumer</module>
