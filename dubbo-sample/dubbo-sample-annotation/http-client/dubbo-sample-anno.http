@@ -1,4 +1,25 @@
-GET http://127.0.0.1:8006/order/getDetail?id=99
+### 集群容错测试
+GET {{url}}/clusterFault
+Accept: application/json
+
+### 负载均衡-随机
+GET {{url}}/loadBalance/random
+Accept: application/json
+
+### 负载均衡-轮询
+GET {{url}}/loadBalance/roundRobin
+Accept: application/json
+
+### 负载均衡-最少活跃调用数
+GET {{url}}/loadBalance/leastActive
+Accept: application/json
+
+### 负载均衡-一致性Hash
+GET {{url}}/loadBalance/consistentHash
+Accept: application/json
+
+### 直连提供者
+GET {{url}}/directConnect
 Accept: application/json
 
 ###
