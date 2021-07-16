@@ -59,6 +59,9 @@ public class ProviderConfiguration {
         registryConfig.setProtocol("zookeeper");
         registryConfig.setAddress("127.0.0.1");
         registryConfig.setPort(2181);
+        // registryConfig.setCheck(true); // 属性check: 关闭所有服务的启动时检查 (没有提供者时报错)。默认值true(开启)
+        // 属性register：只订阅不注册
+        // registryConfig.setRegister(false);
         return registryConfig;
     }
 
@@ -71,8 +74,35 @@ public class ProviderConfiguration {
     @Bean
     public ProtocolConfig protocolConfig() {
         ProtocolConfig protocolConfig = new ProtocolConfig();
+        // name属性：指定使用协议名称。（dubbo/rmi/rest）
         protocolConfig.setName("dubbo");
+        // port属性：dubbo协议缺省端口为20880，rmi协议缺省端口为1099，http和hessian协议缺省端口为80；
+        // 如果没有配置port，则自动采用默认端口，如果配置为-1，则会分配一个没有被占用的端口。
         protocolConfig.setPort(20880);
+        // dispatcher属性：协议的消息派发方式，用于指定线程模型，
+        // 比如：dubbo协议的 all/direct/message/execution/connection 等
+        protocolConfig.setDispatcher("all");
+        // threadpool属性：线程池类型，可选：fixed/cached/limited/eager
+        protocolConfig.setThreadpool("fixed");
+        // threads属性：服务线程池大小(固定大小)，默认值200
+        protocolConfig.setThreads(100);
+        return protocolConfig;
+    }
+
+    /**
+     * 配置多协议，rmi协议
+     * 相当于xml配置文件中的<dubbo:protocol />标签
+     *
+     * @return ProtocolConfig
+     */
+    @Bean
+    public ProtocolConfig protocolConfigRmi() {
+        ProtocolConfig protocolConfig = new ProtocolConfig();
+        // name属性：指定使用协议名称。（dubbo/rmi/rest）
+        protocolConfig.setName("rmi");
+        // port属性：dubbo协议缺省端口为20880，rmi协议缺省端口为1099，http和hessian协议缺省端口为80；
+        // 如果没有配置port，则自动采用默认端口，如果配置为-1，则会分配一个没有被占用的端口。
+        protocolConfig.setPort(1099);
         return protocolConfig;
     }
 
