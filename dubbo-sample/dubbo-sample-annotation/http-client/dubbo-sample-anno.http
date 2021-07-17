@@ -22,4 +22,20 @@ Accept: application/json
 GET {{url}}/directConnect
 Accept: application/json
 
+### 多协议
+GET {{url}}/multiProtocol
+Accept: application/json
+
+### 服务分组
+GET {{url}}/group
+Accept: application/json
+
+### 服务分组-字符串结果合并
+GET {{url}}/group/mergerString
+Accept: application/json
+
+### 多版本
+GET {{url}}/multiVersion
+Accept: application/json
+
 ###
