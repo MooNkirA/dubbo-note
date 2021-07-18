@@ -12,7 +12,7 @@ import com.moon.dubbo.service.ValidationService;
  * @date 2021-07-17 17:02
  * @description
  */
-@Service
+@Service(validation = "true")
 public class ValidationServiceImpl implements ValidationService {
 
     @Override
