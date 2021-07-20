@@ -20,9 +20,9 @@ public class OrderServiceImpl implements OrderService {
     public OrderEntiry getDetail(String id) {
         System.out.println(super.getClass().getName() + "被调用一次：" + System.currentTimeMillis());
         OrderEntiry orderEntiry = new OrderEntiry();
-        orderEntiry.setId("O0001");
+        orderEntiry.setId(id);
         orderEntiry.setMoney(2000);
-        orderEntiry.setUserId("U0001");
+        orderEntiry.setUserId(id + "-" + System.currentTimeMillis());
 
         return orderEntiry;
     }

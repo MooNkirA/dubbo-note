@@ -38,4 +38,28 @@ Accept: application/json
 GET {{url}}/multiVersion
 Accept: application/json
 
+### 参数校验
+POST {{url}}/validation/save
+Content-Type: application/json
+
+{
+  "name": "MooN",
+  "email": "moon@moon.com",
+  "age": 28
+}
+
+### 泛化调用
+GET {{url}}/generic/order/getDetail?id=11
+Accept: application/json
+
+### 泛化调用-方法参数为pojo
+POST {{url}}/generic/user/regist
+Content-Type: application/json
+
+{
+  "name": "MooN",
+  "address": "天锁斩月",
+  "balance": 132
+}
+
 ###
