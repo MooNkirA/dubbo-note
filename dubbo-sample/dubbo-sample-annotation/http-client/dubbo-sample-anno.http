@@ -62,4 +62,12 @@ Content-Type: application/json
   "balance": 132
 }
 
+### 泛化调用-自定义泛化接口实现
+GET {{url}}/generic/customGeneric?param=123
+Accept: application/json
+
+### 上下文信息-隐式参数传递
+GET {{url}}/context/attachment
+Accept: application/json
+
 ###

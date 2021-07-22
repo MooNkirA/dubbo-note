@@ -3,6 +3,10 @@ package com.moon.dubbo.annotation.service;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.alibaba.dubbo.rpc.service.GenericException;
 import com.alibaba.dubbo.rpc.service.GenericService;
+import com.moon.dubbo.service.GenericCallService;
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 
 import java.util.StringJoiner;
 
@@ -15,7 +19,9 @@ import java.util.StringJoiner;
  * @description
  */
 @Service
-public class MyGenericService implements GenericService {
+public class MyGenericService implements GenericService, ApplicationContextAware {
+
+    private ApplicationContext context;
 
     /**
      * Generic invocation
@@ -41,8 +47,24 @@ public class MyGenericService implements GenericService {
                 joiner.add("args[" + i + "] is " + args[i]);
             }
         }
-        System.out.println("泛化调用 MyGenericService 实现==> " + joiner.toString());
-        return "泛化调用方法==> " + joiner.toString();
+        String result = joiner.toString();
+        System.out.println("泛化调用 MyGenericService 实现==> " + result);
+
+        /*
+         * 这里做简单的判断，直接调用spring容器中的实例方法。
+         * 注：这是写死的调用，实际项目中的应用是通过反射或者从spring容器去调用相应的方法
+         */
+        if ("getResult".equals(method)) {
+            GenericCallService genericCallService = context.getBean(GenericCallService.class);
+            result = genericCallService.getResult((String) args[0]);
+        }
+
+        return result;
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.context = applicationContext;
     }
 
 }

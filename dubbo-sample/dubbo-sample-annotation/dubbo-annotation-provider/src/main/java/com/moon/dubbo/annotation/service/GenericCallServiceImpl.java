@@ -1,7 +1,7 @@
 package com.moon.dubbo.annotation.service;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.moon.dubbo.service.GenericCallService;
+import org.springframework.stereotype.Component;
 
 /**
  * 泛化调用测试实现
@@ -11,7 +11,7 @@ import com.moon.dubbo.service.GenericCallService;
  * @date 2021-07-18 14:31
  * @description
  */
-@Service
+@Component
 public class GenericCallServiceImpl implements GenericCallService {
 
     @Override

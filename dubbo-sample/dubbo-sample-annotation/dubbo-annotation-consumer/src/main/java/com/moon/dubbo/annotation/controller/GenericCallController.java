@@ -36,9 +36,9 @@ public class GenericCallController implements InitializingBean {
      *  generic属性：是否缺省泛化接口，如果为泛化接口，将返回GenericService
      *  interfaceName属性：指定泛化调用的接口
      */
-    // @Reference(interfaceName = "com.moon.dubbo.service.GenericCallService", generic = true)
-    @Reference(generic = true)
-    private OrderService orderService;
+    @Reference
+    private GenericService genericService;
+
     @Autowired
     private ApplicationConfig applicationConfig;
     @Autowired
@@ -95,6 +95,14 @@ public class GenericCallController implements InitializingBean {
         Object result = genericService.$invoke("regist", new String[]{"com.moon.dubbo.entity.UserEntiry"}, new Object[]{userMap});
         System.out.println(result);
         return (Map<String, Object>) result;
+    }
+
+    @GetMapping("customGeneric")
+    public String testCustomGeneric(@RequestParam("param") String param) {
+        // 调用自定义泛化实现
+        Object result = genericService.$invoke("getResult", new String[]{"java.lang.String"}, new Object[]{param});
+        System.out.println(result);
+        return (String) result;
     }
 
 }
