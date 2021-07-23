@@ -1,4 +1,4 @@
-package com.moon.dubbo.annotation.service;
+package com.moon.dubbo.annotation.service.fault;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.moon.dubbo.response.CommonResult;

@@ -1,4 +1,4 @@
-package com.moon.dubbo.annotation.service;
+package com.moon.dubbo.annotation.service.generic;
 
 import com.moon.dubbo.service.GenericCallService;
 import org.springframework.stereotype.Component;

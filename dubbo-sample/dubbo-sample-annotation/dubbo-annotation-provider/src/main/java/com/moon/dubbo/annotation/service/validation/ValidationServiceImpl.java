@@ -1,4 +1,4 @@
-package com.moon.dubbo.annotation.service;
+package com.moon.dubbo.annotation.service.validation;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.moon.dubbo.entity.ValidationParameter;

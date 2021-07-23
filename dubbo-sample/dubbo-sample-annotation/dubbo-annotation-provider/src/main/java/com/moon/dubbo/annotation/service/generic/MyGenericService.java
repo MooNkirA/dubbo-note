@@ -1,4 +1,4 @@
-package com.moon.dubbo.annotation.service;
+package com.moon.dubbo.annotation.service.generic;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.alibaba.dubbo.rpc.service.GenericException;
