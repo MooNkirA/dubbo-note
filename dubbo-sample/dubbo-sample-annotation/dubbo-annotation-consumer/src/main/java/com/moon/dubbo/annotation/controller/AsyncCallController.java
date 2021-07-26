@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 /**
  * 异步调用测试
@@ -49,23 +52,52 @@ public class AsyncCallController {
         return "success!";
     }
 
-    /*@GetMapping("rpcContext")
-    public String testRpcContext(@RequestParam("name") String name) {
+    @GetMapping("rpcContext/v2.7/getCompletableFuture")
+    public String testRpcContextGetCompletableFuture(@RequestParam("name") String name) {
         // 此调用会立即返回null
         asyncService.doAsyncOther(name);
-        // 拿到调用的Future引用，当结果返回后，会被通知和设置到此Future
-        CompletableFuture<String> helloFuture = RpcContext.getContext().getCompletableFuture();
+        // 拿到调用的Future引用，当结果返回后，会被通知和设置到此Future，注：此方式用于2.7版本以后
+        /*CompletableFuture<String> future = RpcContext.getContext().getCompletableFuture();
         // 为Future添加回调
-        helloFuture.whenComplete((retValue, exception) -> {
+        future.whenComplete((retValue, exception) -> {
             if (exception == null) {
                 System.out.println(retValue);
             } else {
                 exception.printStackTrace();
             }
-        });
+        });*/
         // 早于结果输出
         System.out.println("Executed before response return.");
         return "success!";
-    }*/
+    }
+
+    @GetMapping("rpcContext/asyncCall")
+    public String testRpcContextAsyncCall(@RequestParam("name") String name) throws InterruptedException {
+        // 此调用会立即返回null
+        System.out.println("call immediately, " + asyncService.doAsyncOther(name));
+
+        // 拿到调用的Future引用，当结果返回后，会被通知和设置到此Future
+        RpcContext.getContext().asyncCall(() -> {
+            asyncService.doAsyncOther(name);
+        });
+
+        // 早于结果输出
+        System.out.println("Executed before response return.");
+        Thread.sleep(50000);
+        return "success!";
+    }
+
+    @GetMapping("rpcContext/getFuture")
+    public String testRpcContextByGetFuture(@RequestParam("name") String name) throws ExecutionException, InterruptedException {
+        String result = asyncService.doAsyncOther(name);
+        System.out.println("call immediately... " + result);
+        // 此调用为异步调用
+        // 调用方法后，此get方法会使主线程阻塞，并等待返回结果
+        Object result2 = RpcContext.getContext().getFuture().get();
+        // 早于结果输出
+        System.out.println("Executed after getFuture().get() return." + result2);
+
+        return "success!";
+    }
 
 }

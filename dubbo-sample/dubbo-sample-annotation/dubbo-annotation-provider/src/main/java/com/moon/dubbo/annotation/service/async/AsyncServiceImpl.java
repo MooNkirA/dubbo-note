@@ -28,7 +28,7 @@ public class AsyncServiceImpl implements AsyncService {
      */
     @Override
     public CompletableFuture<String> doAsync(String name) {
-        System.out.println("[annotation provider] AsyncService 接口实现 doAsync 方法执行...");
+        System.out.println("[annotation provider] AsyncService 接口实现 doAsync 方法执行 start...");
         RpcContext savedContext = RpcContext.getContext();
         // 建议为supplyAsync提供自定义线程池，避免使用JDK公用线程池。
         // 业务执行已从 Dubbo 线程切换到业务线程，避免了对 Dubbo 线程池的阻塞。
@@ -36,6 +36,7 @@ public class AsyncServiceImpl implements AsyncService {
             System.out.println("receive form consumer: " + savedContext.getAttachment("consumer-key"));
             try {
                 Thread.sleep(30000); // 休眠，模拟处理复杂业务
+                System.out.println("[annotation provider] AsyncService 接口实现 doAsync 方法执行 end...");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -53,9 +54,10 @@ public class AsyncServiceImpl implements AsyncService {
      */
     @Override
     public String doAsyncOther(String name) {
-        System.out.println("[annotation provider] AsyncService 接口实现 doAsyncOther 方法执行...");
         try {
+            System.out.println("[annotation provider] AsyncService 接口实现 doAsyncOther 方法执行 start...");
             Thread.sleep(15000); // 休眠，模拟处理复杂业务
+            System.out.println("[annotation provider] AsyncService 接口实现 doAsyncOther 方法执行 end...");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
