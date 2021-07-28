@@ -70,4 +70,28 @@ Accept: application/json
 GET {{url}}/context/attachment
 Accept: application/json
 
+### 异步调用测试
+GET {{url}}/asyncCall/completableFuture?name=pink
+Accept: application/json
+
+### 异步调用测试
+GET {{url}}/asyncCall/completableFuture?name=pink
+Accept: application/json
+
+### 异步调用-getFuture
+GET {{url}}/asyncCall/rpcContext/getFuture?name=pink
+Accept: application/json
+
+### 本地调用
+GET {{url}}/localCall
+Accept: application/json
+
+### 参数回调
+GET {{url}}/callbackParameter
+Accept: application/json
+
+### 本地存根
+GET {{url}}/localStub?params=remote
+Accept: application/json
+
 ###
