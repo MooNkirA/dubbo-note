@@ -94,4 +94,8 @@ Accept: application/json
 GET {{url}}/localStub?params=remote
 Accept: application/json
 
+### 本地伪装
+GET {{url}}/localMock?params=MooNkirA
+Accept: application/json
+
 ###

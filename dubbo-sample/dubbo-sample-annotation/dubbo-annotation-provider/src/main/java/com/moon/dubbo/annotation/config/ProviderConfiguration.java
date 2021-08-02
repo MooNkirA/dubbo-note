@@ -112,7 +112,7 @@ public class ProviderConfiguration {
      *
      * @return ProtocolConfig
      */
-    @Bean("rmi")
+    /*@Bean("rmi")
     public ProtocolConfig protocolConfigRmi() {
         ProtocolConfig protocolConfig = new ProtocolConfig();
         // name属性：指定使用协议名称。（dubbo/rmi/rest）
@@ -121,6 +121,6 @@ public class ProviderConfiguration {
         // 如果没有配置port，则自动采用默认端口，如果配置为-1，则会分配一个没有被占用的端口。
         protocolConfig.setPort(1099);
         return protocolConfig;
-    }
+    }*/
 
 }
