@@ -98,4 +98,12 @@ Accept: application/json
 GET {{url}}/localMock?params=MooNkirA
 Accept: application/json
 
+### 延迟暴露
+GET {{url}}/delayPublish
+Accept: application/json
+
+### 并发控制
+GET {{url}}/concurrency-control
+Accept: application/json
+
 ###
