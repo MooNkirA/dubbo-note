@@ -22,4 +22,88 @@ Accept: application/json
 GET {{url}}/directConnect
 Accept: application/json
 
+### 多协议
+GET {{url}}/multiProtocol
+Accept: application/json
+
+### 服务分组
+GET {{url}}/group
+Accept: application/json
+
+### 服务分组-字符串结果合并
+GET {{url}}/group/mergerString
+Accept: application/json
+
+### 多版本
+GET {{url}}/multiVersion
+Accept: application/json
+
+### 参数校验
+POST {{url}}/validation/save
+Content-Type: application/json
+
+{
+  "name": "MooN",
+  "email": "moon@moon.com",
+  "age": 28
+}
+
+### 泛化调用
+GET {{url}}/generic/order/getDetail?id=11
+Accept: application/json
+
+### 泛化调用-方法参数为pojo
+POST {{url}}/generic/user/regist
+Content-Type: application/json
+
+{
+  "name": "MooN",
+  "address": "天锁斩月",
+  "balance": 132
+}
+
+### 泛化调用-自定义泛化接口实现
+GET {{url}}/generic/customGeneric?param=123
+Accept: application/json
+
+### 上下文信息-隐式参数传递
+GET {{url}}/context/attachment
+Accept: application/json
+
+### 异步调用测试
+GET {{url}}/asyncCall/completableFuture?name=pink
+Accept: application/json
+
+### 异步调用测试
+GET {{url}}/asyncCall/completableFuture?name=pink
+Accept: application/json
+
+### 异步调用-getFuture
+GET {{url}}/asyncCall/rpcContext/getFuture?name=pink
+Accept: application/json
+
+### 本地调用
+GET {{url}}/localCall
+Accept: application/json
+
+### 参数回调
+GET {{url}}/callbackParameter
+Accept: application/json
+
+### 本地存根
+GET {{url}}/localStub?params=remote
+Accept: application/json
+
+### 本地伪装
+GET {{url}}/localMock?params=MooNkirA
+Accept: application/json
+
+### 延迟暴露
+GET {{url}}/delayPublish
+Accept: application/json
+
+### 并发控制
+GET {{url}}/concurrency-control
+Accept: application/json
+
 ###

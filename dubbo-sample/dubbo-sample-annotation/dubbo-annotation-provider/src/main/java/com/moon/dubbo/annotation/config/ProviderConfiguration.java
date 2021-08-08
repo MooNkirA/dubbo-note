@@ -53,9 +53,10 @@ public class ProviderConfiguration {
      *
      * @return RegistryConfig
      */
-    @Bean
+    @Bean("registry1")
     public RegistryConfig registryConfig() {
         RegistryConfig registryConfig = new RegistryConfig();
+        // registryConfig.setId("MoonRegistry"); // 注册中心的ID，用于引用
         registryConfig.setProtocol("zookeeper");
         registryConfig.setAddress("127.0.0.1");
         registryConfig.setPort(2181);
@@ -66,12 +67,28 @@ public class ProviderConfiguration {
     }
 
     /**
+     * 多个注册中心配置示例
+     * 相当于xml配置文件中的<dubbo:registry />标签
+     *
+     * @return RegistryConfig
+     */
+    /*@Bean("ZeroRegistry")
+    public RegistryConfig registryConfig2() {
+        RegistryConfig registryConfig = new RegistryConfig();
+        registryConfig.setId("ZeroRegistry");
+        registryConfig.setProtocol("zookeeper");
+        registryConfig.setAddress("127.0.0.1");
+        registryConfig.setPort(2181);
+        return registryConfig;
+    }*/
+
+    /**
      * 必需配置。通信协议与监听端口
      * 相当于xml配置文件中的<dubbo:protocol />标签
      *
      * @return ProtocolConfig
      */
-    @Bean
+    @Bean("dubbo")
     public ProtocolConfig protocolConfig() {
         ProtocolConfig protocolConfig = new ProtocolConfig();
         // name属性：指定使用协议名称。（dubbo/rmi/rest）
@@ -95,7 +112,7 @@ public class ProviderConfiguration {
      *
      * @return ProtocolConfig
      */
-    @Bean
+    /*@Bean("rmi")
     public ProtocolConfig protocolConfigRmi() {
         ProtocolConfig protocolConfig = new ProtocolConfig();
         // name属性：指定使用协议名称。（dubbo/rmi/rest）
@@ -104,6 +121,6 @@ public class ProviderConfiguration {
         // 如果没有配置port，则自动采用默认端口，如果配置为-1，则会分配一个没有被占用的端口。
         protocolConfig.setPort(1099);
         return protocolConfig;
-    }
+    }*/
 
 }

@@ -1,4 +1,4 @@
-package com.moon.dubbo.annotation.service;
+package com.moon.dubbo.annotation.service.explicit;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.moon.dubbo.service.DirectConnectService;
@@ -16,8 +16,8 @@ public class DirectConnectServiceImpl implements DirectConnectService {
 
     @Override
     public String queryData() {
-        System.out.println("[annotation provider] DirectConnectService接口实现queryDataList方法执行...");
-        return "[annotation provider] DirectConnectService.queryDataList()...";
+        System.out.println("[annotation provider] DirectConnectService 接口实现 queryData 方法执行...");
+        return "[annotation provider] DirectConnectService.queryData()...";
     }
 
 }

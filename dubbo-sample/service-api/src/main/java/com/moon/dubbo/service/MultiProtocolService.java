@@ -1,5 +1,7 @@
 package com.moon.dubbo.service;
 
+import java.util.List;
+
 /**
  * 多协议测试接口
  *
@@ -9,4 +11,7 @@ package com.moon.dubbo.service;
  * @description
  */
 public interface MultiProtocolService {
+
+    List<String> queryDataByProtocol();
+
 }

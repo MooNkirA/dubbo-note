@@ -6,7 +6,6 @@ import com.alibaba.dubbo.config.RegistryConfig;
 import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 
 /**
  * 服务消费者配置类 - 用于配置消费者需要几个主要注解
@@ -20,7 +19,7 @@ import org.springframework.context.annotation.ComponentScan;
 // 消费方开启dubbo注解扫描，指定需要扫描的包路径。扫描如：@Reference等注解
 @EnableDubbo(scanBasePackages = {"com.moon.dubbo.annotation.controller"})
 // 开启spring框架注解扫描功能。用于测试dubbo服务注入
-// @ComponentScan({"com.moon.dubbo.annotation.controller"})
+// @ComponentScan({"com.moon.dubbo.annotation"})
 public class ConsumerConfiguration {
 
     /**
@@ -32,7 +31,7 @@ public class ConsumerConfiguration {
     @Bean
     public ApplicationConfig applicationConfig() {
         ApplicationConfig applicationConfig = new ApplicationConfig();
-        applicationConfig.setName("busi-annotation-consumer");
+        applicationConfig.setName("dubbo-annotation-consumer");
         return applicationConfig;
     }
 
