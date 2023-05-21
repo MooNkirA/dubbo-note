@@ -1,0 +1,21 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: dubbo-sentinel-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    sentinel:
+      transport:
+        dashboard: localhost:9898
+        port: 9898
+dubbo:
+  registry:
+    address: spring-cloud://localhost
+  scan:
+    base-packages: com.moon.dubbo.sentinel.service
+  protocol:
+    name: dubbo
+    port: -1
